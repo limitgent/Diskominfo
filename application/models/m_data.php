@@ -3,7 +3,7 @@
 class M_data extends CI_Model{
   // function untuk mengambil keseluruhan baris data dari tabel user
 	public function tampil_data(){
-		return $this->db->get('kapal');
+		return $this->db->get('admin');
     }
      public function tampil_data2(){
       return $this->db->get('admin');

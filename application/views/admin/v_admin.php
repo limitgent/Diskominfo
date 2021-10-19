@@ -3,7 +3,7 @@
 
 <!-- Page Heading -->
 
-<h1 class="h3 mb-2 text-gray-800">Data Admin <a class="btn btn-primary" href="<?= base_url() . 'admin/C_admin/tambah'; ?>">
+<h1 class="h3 mb-2 text-gray-800">Data Admin <a class="btn btn-primary" href="<?= base_url() . 'admin/C_admin/tambah_admin/'; ?>">
 <i class="fas fa-user-plus" disabled></i></a></h1>'
 
 <!-- DataTales Example -->
@@ -34,9 +34,9 @@
         <?php 
         foreach ($admin as $ad ) { ?>
           <tr>
-            <td><?=$ad->username?></td>
+            <td><?=$ad->username_admin?></td>
             <td><?=$ad->nama_admin?></td>
-            <td><?=$ad->password?></td>
+            <td><?=$ad->password_admin?></td>
             <td>
               <a class="btn btn-primary" href="<?php echo base_url('admin/C_admin/edit/'. $ad->id_admin); ?>"><i class="fas fa-pencil-alt"></i></a>
               <a class="btn btn-danger" href="<?php echo base_url('admin/C_admin/hapus/'. $ad->id_admin); ?>"><i class="fas fa-trash"></i></a>

@@ -10,18 +10,18 @@
                 <!-- Disini tempat membuat Edit Profil nya! -->
             </div>
             <div class="col-lg-10">
-                <form action="<?php echo base_url() . 'admin/C_admin/tambah_admin'; ?>" method="post">
+                <form action="<?php echo base_url() . 'admin/C_admin/input_admin/'; ?>" method="post">
                     <div class="form-group">
                         <label for="nama_admin"> Nama Admin : </label>
                         <input type="text" class="form-control form-control-user" id="nama_admin" name="nama_admin" placeholder="Masukan Nama Admin" title="Isikan data dengan benar" required pattern="[a-zA-Z\s]+">
                     </div>
                     <div class="form-group">
                         <label for="useraname"> Username : </label>
-                        <input type="username" class="form-control form-control-user" id="username" name="username" placeholder="Masukan Username" title="Isikan data dengan benar" required>
+                        <input type="username" class="form-control form-control-user" id="username_admin" name="username_admin" placeholder="Masukan Username" title="Isikan data dengan benar" required>
                     </div>
                     <div class="form-group">
                         <label for="password"> Password : </label>
-                        <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Masukkan Password" title="Isikn data dengan benar" required>
+                        <input type="password" name="password_admin" class="form-control form-control-user" id="password_admin" placeholder="Masukkan Password" title="Isikn data dengan benar" required>
                     </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Tambah</button>

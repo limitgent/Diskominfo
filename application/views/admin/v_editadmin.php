@@ -11,20 +11,20 @@
             </div>
             <div class="col-lg-10">
             <?php 
-            foreach ($kapal as $ad ) { ?>
-                <form action="<?php echo base_url() . 'admin/C_admin/update'; ?>" method="post">
+            foreach ($admin as $ad ) { ?>
+                <form action="<?php echo base_url() . 'admin/C_admin/update/'; ?>" method="post">
                     <div class="form-group">
                         <label for="nama_admin"> Nama Admin : </label>
                         <input type="hidden" class="form-control form-control-user"  id="id_admin" name="id_admin" value="<?php echo $ad->id_admin ?>">
-                        <input type="text" class="form-control form-control-user" id="nama_admin" name="nama_admin" placeholder="Masukan Nama Admin" title="Isikan data dengan benar" required pattern="[a-zA-Z\s]+" value="<?php echo $ad->nama_kapal ?>">
+                        <input type="text" class="form-control form-control-user" id="nama_admin" name="nama_admin" placeholder="Masukan Nama Admin" title="Isikan data dengan benar" required pattern="[a-zA-Z\s]+" value="<?php echo $ad->nama_admin ?>">
                     </div>
                     <div class="form-group">
                         <label for="useraname"> Username : </label>
-                        <input type="username" class="form-control form-control-user" id="user" name="user" placeholder="Masukan Username Admin" title="Isikan data dengan benar" value="<?php echo $ad->user ?>" required>
+                        <input type="username" class="form-control form-control-user" id="username_admin" name="username_admin" placeholder="Masukan Username Admin" title="Isikan data dengan benar" value="<?php echo $ad->username_admin ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="password"> Password : </label>
-                        <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Masukkan No Telepon" title="Isikn data dengan benar" value="<?php echo $ad->password ?>" required>
+                        <input type="password" name="password_admin" class="form-control form-control-user" id="password_admin" placeholder="Masukkan Password" title="Isikn data dengan benar" value="<?php echo $ad->password_admin ?>" required>
                     </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Tambah</button>
