@@ -16,7 +16,7 @@
                 <div class="p-5">
                   <div class="text-center">
 
-                    <h1 class="h4 text-gray-900 mb-4">Selamat Datang Mamank</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Selamat Datang Admin</h1>
                   </div>
                   <form action="<?php echo base_url('admin/C_login/aksi_login'); ?>" method="post">
                     <div class="form-group">

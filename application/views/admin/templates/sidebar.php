@@ -28,9 +28,18 @@
 
       <span class="nav-item">
 
+      
         <a class="nav-link" href="<?=base_url('')?>">
           <i class="fas fa-fw fa-address-card"></i>
           <span>Janji Temu</span></a>
+
+      </li>
+      <hr class="sidebar-divider">
+
+      <span class="nav-item">
+        <a class="nav-link" href="<?=base_url('admin/Janji/tampil_divisi')?>">
+          <i class="fas fa-fw fa-address-card"></i>
+          <span>Divisi</span></a>
       </li>
 
       <hr class="sidebar-divider">
