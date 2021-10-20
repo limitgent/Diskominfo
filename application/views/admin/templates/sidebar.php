@@ -55,12 +55,12 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        admin
+        Akun
       </div>
       <span class="nav-item">
         <a class="nav-link" href="<?=base_url('admin/C_admin/')?>">
           <i class="fas fa-fw fa-address-card"></i>
-          <span>Akun</span></a>
+          <span>Admin</span></a>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
