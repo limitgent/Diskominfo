@@ -45,7 +45,7 @@
       <hr class="sidebar-divider">
 
       <span class="nav-item">
-        <a class="nav-link" href="<?=base_url('')?>">
+        <a class="nav-link" href="<?=base_url('admin/C_surat/tampil_surat')?>">
           <i class="fas fa-fw fa-address-card"></i>
           <span>Surat</span></a>
       </li>
@@ -67,7 +67,7 @@
       <span class="nav-item">
         <a class="nav-link" href="<?=base_url('')?>">
           <i class="fas fa-fw fa-address-card"></i>
-          <span>UPD</span></a>
+          <span>OPD</span></a>
       </li>
       
 

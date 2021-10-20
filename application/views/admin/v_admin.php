@@ -22,14 +22,7 @@
             <th>Aksi</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>Username</th>
-            <th>Nama Admin</th>
-            <th>Password</th>
-            <th>Aksi</th>
-          </tr>
-        </tfoot>
+        
         <tbody>
         <?php 
         foreach ($admin as $ad ) { ?>
