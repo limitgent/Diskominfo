@@ -70,3 +70,37 @@ class C_surat extends CI_Controller {
                 $this->load->view('admin/templates/footer');
                
             }
+
+            // baris kode function update adalah method yang diajalankan ketika tombol submit pada form v_edit ditekan, method ini berfungsi untuk merekam data, memperbarui baris database yang dimaksud, lalu mengarahkan pengguna ke controller crud method index
+        function update(){
+            // keenam baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+                
+                $id_surat= $this->input->post('id_surat');
+                $id_opd= $this->input->post('id_opd');
+                $tgl_kirim = $this->input->post('tgl_kirim');
+                $tgl_terima= $this->input->post('tgl_terima');
+                $perihal= $this->input->post('perihal');
+                $file= $this->input->post('file');
+            
+            
+                // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
+                $data = array(
+                    'id_admin' => $id_admin,
+                    'id_opd' => $id_opd,
+                    'tgl_kirim' => $tgl_kirim,
+                    'tgl_terima' => $tgl_terima,
+                    'perihal' => $perihal,
+                    'file' => $file,
+                );
+            
+                // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
+                $where = array(
+                    'id_admin' => $id_admin
+                );
+            
+                // kode untuk melakukan query update dengan menjalankan method update_data() 
+                $this->m_data_surat->update_data($where,$data,'admin');
+                // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+                redirect('admin/C_surat/index');
+            }
+}
