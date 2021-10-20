@@ -25,4 +25,26 @@ class C_surat extends CI_Controller {
             $this->load->view('admin/templates/footer');
             }
 
-            
+            function input_surat(){
+                // ini adalah baris kode yang berfungsi merekam data yang diinput oleh pengguna
+                  $id_surat = $this->input->post('id_surat');
+                  $id_opd = $this->input->post('id_opd');
+                  $tgl_kirim = $this->input->post('tgl_kirim');
+                  $tgl_terima = $this->input->post('tgl_terima');
+                  $perihal = $this->input->post('perihal');
+                  $file = $this->input->post('file');
+                // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
+                  $data = array(
+                      'id_surat' => $id_surat,
+                      'id_opd' => $id_opd,
+                      'tgl_kirim' => $tgl_kirim,
+                      'tgl_terima' => $tgl_terima,
+                      'perihal' => $perihal,
+                      'file' => $file,
+                      
+                );
+                // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
+                  $this->m_data_surat->input_data($data,'surat');
+              // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
+              redirect('admin/C_surat/index');
+              }
