@@ -19,7 +19,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?=base_url('admin/C_dashboard')?>">
+        <a class="nav-link" href="<?= base_url('admin/C_dashboard') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -28,61 +28,61 @@
 
       <span class="nav-item">
 
-      
-        <a class="nav-link" href="<?=base_url('')?>">
+
+        <a class="nav-link" href="<?= base_url('admin/janji_temu/tampil_janji') ?>">
           <i class="fas fa-fw fa-address-card"></i>
           <span>Janji Temu</span></a>
 
-      </li>
-      <hr class="sidebar-divider">
+        </li>
+        <hr class="sidebar-divider">
 
-      <span class="nav-item">
-        <a class="nav-link" href="<?=base_url('admin/Janji/tampil_divisi')?>">
-          <i class="fas fa-fw fa-address-card"></i>
-          <span>Divisi</span></a>
-      </li>
+        <span class="nav-item">
+          <a class="nav-link" href="<?= base_url('admin/Janji/tampil_divisi') ?>">
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Divisi</span></a>
+          </li>
 
-      <hr class="sidebar-divider">
+          <hr class="sidebar-divider">
 
-      <span class="nav-item">
-        <a class="nav-link" href="<?=base_url('admin/C_surat/tampil_surat')?>">
-          <i class="fas fa-fw fa-address-card"></i>
-          <span>Surat</span></a>
-      </li>
+          <span class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin/C_surat/tampil_surat') ?>">
+              <i class="fas fa-fw fa-address-card"></i>
+              <span>Surat</span></a>
+            </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Akun
-      </div>
-      <span class="nav-item">
-        <a class="nav-link" href="<?=base_url('admin/C_admin/')?>">
-          <i class="fas fa-fw fa-address-card"></i>
-          <span>Admin</span></a>
-      </li>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+              Akun
+            </div>
+            <span class="nav-item">
+              <a class="nav-link" href="<?= base_url('admin/C_admin/') ?>">
+                <i class="fas fa-fw fa-address-card"></i>
+                <span>Admin</span></a>
+              </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <span class="nav-item">
-        <a class="nav-link" href="<?=base_url('')?>">
-          <i class="fas fa-fw fa-address-card"></i>
-          <span>OPD</span></a>
-      </li>
-      
+              <!-- Nav Item - Pages Collapse Menu -->
+              <span class="nav-item">
+                <a class="nav-link" href="<?= base_url('') ?>">
+                  <i class="fas fa-fw fa-address-card"></i>
+                  <span>OPD</span></a>
+                </li>
 
-      
-      <!-- Divider -->
-      <hr class="sidebar-divider">
 
-      <!-- Heading -->
 
-      <!-- Divider -->
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+                <!-- Heading -->
+
+                <!-- Divider -->
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                  <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
 
     </ul>
     <!-- End of Sidebar -->
@@ -102,7 +102,7 @@
           </button>
 
           <!-- Topbar Search -->
-        <H3>HALAMAN ADMIN</H3>
+          <H3>HALAMAN ADMIN</H3>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -127,7 +127,7 @@
               </div>
             </li>
 
-            
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -138,7 +138,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="<?= base_url('admin/C_login');?>" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="<?= base_url('admin/C_login'); ?>" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
