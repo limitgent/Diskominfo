@@ -25,14 +25,58 @@ class C_surat extends CI_Controller {
             $this->load->view('admin/templates/footer');
             }
 
-            function input_surat(){
-                // ini adalah baris kode yang berfungsi merekam data yang diinput oleh pengguna
-                  $id_surat = $this->input->post('id_surat');
-                  $id_opd = $this->input->post('id_opd');
-                  $tgl_kirim = $this->input->post('tgl_kirim');
-                  $tgl_terima = $this->input->post('tgl_terima');
-                  $perihal = $this->input->post('perihal');
-                  $file = $this->input->post('file');
+            public function tambah_surat()
+        {
+        // Membuat fungsi untuk melakukan penambahan id produk secara otomatis
+		// Mendapatkan jumlah produk yang ada di database
+		$jumlahSurat = $this->m_data_surat->tampil_surat()->num_rows();
+		// Jika jumlah produk lebih dari 0
+		if ($jumlahSurat > 0) {
+			// Mengambil id produk sebelumnya
+			$lastId = $this->m_data_surat->tampil_surat_akhir()->result();
+			// Melakukan perulangan untuk mengambil data
+			foreach ($lastId as $row) {
+				// Melakukan pemisahan huruf dengan angka pada id produk
+				$rawIdSurat = substr($row->id_surat, 3);
+				// Melakukan konversi nilai pemisahan huruf dengan angka pada id order menjadi integer
+				$idSuratInt = intval($rawSurati);
+
+				// Menghitung panjang id yang sudah menjadi integer
+				if (strlen($idSuratInt) == 1) {
+					// jika panjang id hanya 1 angka
+					$id_surat = "S001" . ($idSuratInt + 1);
+				} else if (strlen($idSuratInt) == 2) {
+					// jika panjang id hanya 2 angka
+					$id_surat = "S001" . ($idSuratInt + 1);
+				} else if (strlen($idSuratInt) == 3) {
+					// jika panjang id hanya 3 angka
+					$id_surat = "S1" . ($idSuratInt + 1);
+				}
+			}
+		} else {
+			// Jika jumlah paket soal kurang dari sama dengan 0
+			$id_surat = "SU001";
+        }
+        
+        
+        $data = array( 
+            'id_surat' => $id_surat
+        );
+        $this->load->view('admin/templates/header');
+		$this->load->view('admin/templates/sidebar');
+		$this->load->view('admin/v_tambah_surat', $data);
+		$this->load->view('admin/templates/footer');
+
+    }
+
+    public function tambah_surat(){
+        // ini adalah baris kode yang berfungsi merekam data yang diinput oleh pengguna
+        $id_surat = $this->input->post('id_surat');
+        $id_opd = $this->input->post('id_opd');
+        $tgl_kirim = $this->input->post('tgl_kirim');
+        $tgl_terima = $this->input->post('tgl_terima');
+        $perihal = $this->input->post('perihal');
+        $file = $this->input->post('file');
                 // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
                   $data = array(
                       'id_surat' => $id_surat,
