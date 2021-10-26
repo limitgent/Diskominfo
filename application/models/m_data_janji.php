@@ -22,4 +22,11 @@ class M_data_janji extends CI_Model{
   {
     $this->db->delete($table, $where);
   }
+  function edit_divisi($where,$table){		
+    return $this->db->get_where($table,$where);
+  }
+  function update_data_divisi($where,$data,$table){
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }	
 }

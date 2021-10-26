@@ -96,4 +96,44 @@ class Janji extends CI_Controller {
         $this->m_data_janji->delete_divisi($where, 'divisi');
         redirect('admin/Janji/tampil_divisi');
     }
+
+    public function edit_divisi($id){
+        // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
+        $where = array('id_divisi' => $id);
+        // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
+        $data['divisi'] = $this->m_data_janji->edit_divisi($where,'divisi')->result();
+        // kode ini memuat vie edit dan membawa data hasil query diatas
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/sidebar');
+        $this->load->view('admin/v_editdivisi',$data);
+        $this->load->view('admin/templates/footer');
+       
+    }
+
+    public function update_divisi(){
+        // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+            
+            $id_divisi= $this->input->post('id_divisi');
+            $nama_divisi= $this->input->post('nama_divisi');
+            $ket_divisi= $this->input->post('ket_divisi');
+        
+        
+            // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
+            $data = array(
+                'id_divisi' => $id_divisi,
+                'nama_divisi' => $nama_divisi,
+                'ket_divisi' => $ket_divisi
+                
+            );
+        
+            // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
+            $where = array(
+                'id_divisi' => $id_divisi
+            );
+        
+            // kode untuk melakukan query update dengan menjalankan method update_data() 
+            $this->m_data_janji->update_data_divisi($where,$data,'divisi');
+            // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+            redirect('admin/Janji/tampil_divisi');
+        }
 }
