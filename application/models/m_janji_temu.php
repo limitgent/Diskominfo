@@ -7,7 +7,7 @@ class M_janji_temu extends CI_Model
     {
         return $this->db->get($table);
     }
-    // FORM DIVISI
+
     public function tampil_janji()
     {
         return $this->db->get('aturjanji');
@@ -27,12 +27,12 @@ class M_janji_temu extends CI_Model
     {
         $this->db->delete($table, $where);
     }
-    public function update($where, $data, $table)
+    function update_janji_temu($where, $data, $table)
     {
         $this->db->where($where);
         $this->db->update($table, $data);
     }
-    public function edit($where, $table)
+    function edit($where, $table)
     {
         return $this->db->get_where($table, $where);
     }

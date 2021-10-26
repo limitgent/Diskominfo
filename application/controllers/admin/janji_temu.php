@@ -102,24 +102,54 @@ class janji_temu extends CI_Controller
 
     public function edit_janji($id)
     {
+        // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
         $where = array('id_janji' => $id);
+        // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
+        $data['aturjanji'] = $this->m_janji_temu->edit($where, 'aturjanji')->result();
+        // kode ini memuat vie edit dan membawa data hasil query diatas
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/sidebar');
+        $this->load->view('admin/edit_janji', $data);
+        $this->load->view('admin/templates/footer');
+    }
+
+    public function update_janji()
+    {
+        // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+
+        $id_janji = $this->input->post('id_janji');
+        $nip = $this->input->post('nip');
+        $id_opd = $this->input->post('id_opd');
+        $hari_tgl = $this->input->post('hari_tgl');
+        $atas_nama = $this->input->post('atas_nama');
+        $perihal = $this->input->post('perihal');
+        $status = $this->input->post('status');
+        $no_telpon_user = $this->input->post('no_telpon_user');
+        $jam = $this->input->post('jam');
 
 
-        $this->db->where($where);
-        $this->db->update('aturjanji');
-        $data['id_janji'] = $this->M_janji_temu->getAll('id_janji')->result();
-        $data['nip'] = $this->M_janji_temu->getAll('nip')->result();
-        $data['id_opd'] = $this->M_janji_temu->getAll('id_opd')->result();
-        $data['hari_tgl'] = $this->M_janji_temu->getAll('hari_tgl')->result();
-        $data['atas_nama'] = $this->M_janji_temu->getAll('atas_nama')->result();
-        $data['perihal'] = $this->M_transaksi->getAll($where, 'perihal')->result();
-        $data['status'] = $this->M_transaksi->edit($where, 'status')->result();
-        $data['no_telpon_user'] = $this->M_transaksi->getAll($where, 'no_telpon_user')->result();
-        $data['jam'] = $this->M_transaksi->getAll($where, 'jam')->result();
+        // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
+        $data = array(
+            'id_janji' => $id_janji,
+            'nip' => $nip,
+            'id_opd' => $id_opd,
+            'hari_tgl' => $hari_tgl,
+            'atas_nama' => $atas_nama,
+            'perihal' => $perihal,
+            'status' => $status,
+            'no_telpon_user' => $no_telpon_user,
+            'jam' => $jam,
 
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('admin/janji_temu/edit_janji', $data);
-        $this->load->view('templates/footer');
+        );
+
+        // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
+        $where = array(
+            'id_janji' => $id_janji
+        );
+
+        // kode untuk melakukan query update dengan menjalankan method update_data() 
+        $this->m_janji_temu->update_janji_temu($where, $data, 'aturjanji');
+        // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+        redirect('admin/janji_temu/tampil_janji');
     }
 }

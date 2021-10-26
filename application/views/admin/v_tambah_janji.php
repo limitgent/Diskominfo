@@ -48,7 +48,7 @@
                 <select class="form-control" name="status" id="status" required>
                     <option>Pilih Status :</option>
                     <option>Belum Terkonfirmasi</option>
-                    <option>Menunggu Terkonfirmasi</option>
+                    <option>Menunggu Konfirmasi</option>
                     <option>Terima</option>
                     <option>Tolak</option>
                 </select>

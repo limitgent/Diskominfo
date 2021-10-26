@@ -16,12 +16,12 @@
                     <thead>
                         <tr>
 
-                            <th>Hari/Tgl</th>
-                            <th>Jam</th>
-                            <th>Atas Nama</th>
-                            <th>Perihal</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
+                            <th class="text-center">Hari/Tgl</th>
+                            <th class="text-center">Jam</th>
+                            <th class="text-center">Atas Nama</th>
+                            <th class="text-center">Perihal</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,12 +29,24 @@
                         foreach ($aturjanji as $atj) { ?>
                             <tr>
 
-                                <td><?= $atj->hari_tgl ?></td>
-                                <td><?= $atj->jam ?></td>
-                                <td><?= $atj->atas_nama ?></td>
-                                <td><?= $atj->perihal ?></td>
-                                <td><?= $atj->status ?></td>
-                                <td>
+                                <td class="text-center"><?= $atj->hari_tgl ?></td>
+                                <td class="text-center"><?= $atj->jam ?></td>
+                                <td class="text-center"><?= $atj->atas_nama ?></td>
+                                <td class="text-center"><?= $atj->perihal ?></td>
+                                <td class="text-center">
+                                    <?php if ($atj->status == "Belum Terkonfirmasi") { ?>
+                                        <span class="badge badge-pill px-4 badge-secondary">Belum Terkonfirmasi</span>
+                                    <?php } else if ($atj->status == "Menunggu Konfirmasi") { ?>
+                                        <span class="badge badge-pill px-4 badge-warning">Menunggu Konfirmasi</span>
+                                    <?php } else if ($atj->status == "Terima") { ?>
+                                        <span class="badge badge-pill px-4 badge-primary">Terima</span>
+                                    <?php } else if ($atj->status == "Tolak") { ?>
+                                        <span class="badge badge-pill px-4 badge-danger">Tolak</span>
+
+                                    <?php } ?>
+
+                                </td>
+                                <td class="text-center">
                                     <a class="btn btn-primary" href="<?php echo base_url('admin/janji_temu/edit_janji/' . $atj->id_janji); ?>"><i class="fas fa-pencil-alt"></i></a>
                                     <a class="btn btn-danger" href="<?php echo base_url('admin/janji_temu/hapus_janji/' . $atj->id_janji); ?>"><i class="fas fa-trash"></i></a>
                                     <a class="btn btn-warning" href="<?php echo base_url('admin/janji_temu/detail_janji/' . $atj->id_janji); ?>"><i class="fas fa-info-circle"></i></a>
