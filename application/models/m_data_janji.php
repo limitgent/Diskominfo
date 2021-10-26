@@ -29,4 +29,17 @@ class M_data_janji extends CI_Model{
     $this->db->where($where);
     $this->db->update($table,$data);
   }	
+  function tambah_karyawan($data, $table)
+   {
+       $this->db->insert($table, $data);
+   }
+
+  function tampil_karyawan()
+   {
+      return $this->db->get('karyawan');
+   }
+   function delete_karyawan($where, $table)
+   {
+     $this->db->delete($table, $where);
+   }
 }
