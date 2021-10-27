@@ -126,7 +126,7 @@ class janji_temu extends CI_Controller
 
     public function update_janji()
     {
-        // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+
 
         $id_janji = $this->input->post('id_janji');
         $nip = $this->input->post('nip');
