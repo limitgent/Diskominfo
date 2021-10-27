@@ -1,11 +1,17 @@
 <?php
 //  berfungsi untuk melayani segala query CRUD database
-class M_janji_temu extends CI_Model
+class m_janji_temu extends CI_Model
 {
 
     public function getAll($table)
     {
         return $this->db->get($table);
+    }
+
+    public function detail_data($id = NULL)
+    {
+        $query = $this->db->get_where('aturjanji', array('id_janji' => $id))->result();
+        return $query;
     }
 
     public function tampil_janji()

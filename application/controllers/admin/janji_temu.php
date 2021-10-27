@@ -113,6 +113,17 @@ class janji_temu extends CI_Controller
         $this->load->view('admin/templates/footer');
     }
 
+    public function detail($id)
+    {
+        $where = array('id_janji');
+        $detail = $this->m_janji_temu->detail_data($id);
+        $data['detail'] = $this->m_janji_temu->detail_data($id);
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/sidebar');
+        $this->load->view('admin/v_detail_janji', $data);
+        $this->load->view('admin/templates/footer');
+    }
+
     public function update_janji()
     {
         // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
