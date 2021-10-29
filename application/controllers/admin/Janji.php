@@ -139,7 +139,6 @@ class Janji extends CI_Controller {
 
         function detail_divisi($id){
             
-            echo $id;
             $where = array('divisi.id_divisi' => $id);
             // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
             $result = $this->m_data_janji->edit_divisi($where,'divisi')->result();
