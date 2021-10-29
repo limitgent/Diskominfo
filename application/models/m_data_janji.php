@@ -59,4 +59,11 @@ class M_data_janji extends CI_Model{
     $this->db->where($where);
     return $this->db->get();
   }
+  function edit_karyawan($where,$table){		
+    return $this->db->get_where($table,$where);
+  }
+  function update_data_karyawan($where,$data,$table){
+    $this->db->where($where);
+    $this->db->update($table,$data);
+  }	
 }

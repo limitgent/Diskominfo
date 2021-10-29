@@ -206,6 +206,51 @@ class Janji extends CI_Controller {
 		redirect('admin/Janji/detail_divisi/' . $id_divisi); // setelah itu langsung diarah kan ke function index yang menampilkan v_masuk
 	}
 
+    function edit_karyawan($nip, $id_divisi)
+	{
+		// fungsi variabel id_paket_uri adalah sebagai penanda kita berada di paket soal yang mana
+		//function edit menangkap NIK dari pengiriman NIKyang ditampilkan di v_masuk
+		echo $nip;
+		$where = array('nip' => $nip); // kemudian diubah menjadi array
+        $data1['id_divisi'] = $id_divisi;
+        $result = $this->m_data_janji->edit_divisi($data1,'divisi')->result();
+        $resultKaryawan = $this->m_data_janji->edit_karyawan($where, 'karyawan')->result(); //dan barulah kita kirim data array edit tersebut pada m_data_soal dan ditangkap oleh function edit_data 
+		$data = array(
+            'karyawan' => $resultKaryawan,
+            'divisi' => $result,
+		);
+		$this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/sidebar');
+        $this->load->view('admin/v_edit_karyawan',$data);
+        $this->load->view('admin/templates/footer');
+	}
     
+    public function update_karyawan($id_divisi){
+        // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+            
+            $id_divisi= $this->input->post('id_divisi');
+            $nip= $this->input->post('nip');
+            $nama_karyawan= $this->input->post('nama_karyawan');
+            $jabatan= $this->input->post('jabatan');
+        
+            // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
+            $data = array(
+                'id_divisi' => $id_divisi,
+                'nip' => $nip,
+                'nama_karyawan' => $nama_karyawan,
+                'jabatan' => $jabatan,
+                
+            );
+        
+            // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
+            $where = array(
+                'nip' => $nip
+            );
+        
+            // kode untuk melakukan query update dengan menjalankan method update_data() 
+            $this->m_data_janji->update_data_karyawan($where,$data,'karyawan');
+            // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+            redirect('admin/Janji/detail_divisi/'.$id_divisi);
+        }
 
 }
