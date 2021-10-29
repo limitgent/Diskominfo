@@ -139,10 +139,11 @@ class Janji extends CI_Controller {
 
         function detail_divisi($id){
             
-            $where = array('id_divisi' => $id);
+            echo $id;
+            $where = array('divisi.id_divisi' => $id);
             // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
             $result = $this->m_data_janji->edit_divisi($where,'divisi')->result();
-            $resultKaryawan = $this->m_data_janji->tampil_karyawan()->result();
+            $resultKaryawan = $this->m_data_janji->tampil_karyawan_where($where,'karyawan')->result();
             // kode ini memuat vie edit dan membawa data hasil query diatas
             $data = array(
                 'divisi' => $result,
@@ -154,8 +155,9 @@ class Janji extends CI_Controller {
             $this->load->view('admin/v_detail_karyawan',$data);
             $this->load->view('admin/templates/footer');
         }
+        
 
-        public function aksitambah_karyawan($id_divisi){
+        public function aksitambah_karyawan(){
            
             // ini adalah baris kode yang berfungsi merekam data yang diinput oleh pengguna
               $nip = $this->input->post('nip');  
@@ -173,9 +175,9 @@ class Janji extends CI_Controller {
             // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
               $this->m_data_janji->tambah_karyawan($data,'karyawan');
           // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
-          redirect('admin/Janji/detail_divisi/'.$id_divisi);
+          redirect('admin/Janji/detail_divisi/'.$this->uri->segment(4));
           }
-          function tampilDetailKaryawan($nip)
+          function tampilDetailKaryawan($nip, $id_divisi)
 	{
 		// Mendapatkan Id Produk Soal dari URL
 		$NIP = $nip;
@@ -184,7 +186,7 @@ class Janji extends CI_Controller {
 			'karyawan.nip' => $NIP
 		);
 		// Mendapatkan data paket soal tertentu melalui model
-		$result = $this->m_data_janji->tampil_karyawan($where,'karyawan')->result();
+		$result = $this->m_data_janji->tampil_karyawan_where($where,'karyawan')->result();
         // Menyimpan hasil dari model kedalam array
 		$data = array(
             'data_karyawan' => $result,
@@ -195,5 +197,15 @@ class Janji extends CI_Controller {
         $this->load->view('admin/v_detail_aksikaryawan',$data);
         $this->load->view('admin/templates/footer');
     }
+    function hapus_karyawan($nip, $id_divisi)
+	{
+		//function hapus menangkap NIK dari pengiriman NIK yang ditampilkan di view masuk
+		$where = array('nip' => $nip); // kemudian diubah menjadi array
+		$this->m_data_janji->delete_karyawan($where, 'karyawan'); //dan barulah kita kirim data array hapus tersebut pada m_data_soal yang ditangkap oleh function hapus_data
+		// id paket disini merujuk pada id paket soal mana yang digunakan sekarang
+		redirect('admin/Janji/detail_divisi/' . $id_divisi); // setelah itu langsung diarah kan ke function index yang menampilkan v_masuk
+	}
+
+    
 
 }

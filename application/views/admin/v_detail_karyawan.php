@@ -80,7 +80,9 @@
             <td><?=$kar->nama_karyawan?></td>
             <td><?=$kar->jabatan?></td>
             <td>
-              <a class="btn btn-primary" href="<?php echo base_url('admin/Janji/tampilDetailKaryawan/'. $kar->nip); ?>"><i class="fas fa-info-circle"></i></a>
+            <a class="btn btn-primary" href="<?php echo base_url('admin/Janji/edit_karyawan/'. $kar->nip.'/'.$kar->id_divisi); ?>"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn btn-primary" href="<?php echo base_url('admin/Janji/tampilDetailKaryawan/'. $kar->nip.'/'.$kar->id_divisi); ?>"><i class="fas fa-info-circle"></i></a>
+              <a class="btn btn-danger" href="<?php echo base_url('admin/Janji/hapus_karyawan/'. $kar->nip.'/'.$kar->id_divisi); ?>"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
         <?php } ?>

@@ -42,4 +42,21 @@ class M_data_janji extends CI_Model{
    {
      $this->db->delete($table, $where);
    }
+   function tampil_karyawan_where($where, $table)
+  {
+    $fields = array(
+      "karyawan.nip",
+      "divisi.id_divisi",
+      "divisi.nama_divisi",
+      "karyawan.nama_karyawan",
+      "karyawan.jabatan",
+       
+    );
+
+    $this->db->select($fields);
+    $this->db->from($table);
+    $this->db->join('divisi', 'karyawan.id_divisi = divisi.id_divisi');
+    $this->db->where($where);
+    return $this->db->get();
+  }
 }

@@ -33,10 +33,7 @@
                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-12 col-md-2">
-                                                <a href="<?= base_url('admin/Janji/hapus_karyawan/'.$datakar->nip);?>" class="btn btn-outline-secondary p-2 w-100">Hapus Data</a>
-                                            </div>
-                                            <div class="col-sm-12 col-md-2">
-                                            <a href="<?= base_url('admin/Janji/edit_karyawan/'.$datakar->nip);?>" class="btn btn-outline-secondary p-2 w-100">Edit Data</a>
+                                                <a href="<?= base_url('admin/Janji/detail_divisi/'.$this->uri->segment(5));?>" class="btn btn-outline-secondary p-2 w-100">Kembali</a>
                                             </div>
                                         </div>
                                     </div>
