@@ -26,6 +26,8 @@ class C_admin extends CI_Controller {
         }
 
         function tambah_admin(){
+            
+
             $this->load->view('admin/templates/header');
             $this->load->view('admin/templates/sidebar');
             $this->load->view('admin/v_inputadmin');
