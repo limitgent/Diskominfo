@@ -39,18 +39,18 @@ class C_surat extends CI_Controller {
 				// Melakukan pemisahan huruf dengan angka pada id produk
 				$rawIdSurat = substr($row->id_surat, 3);
 				// Melakukan konversi nilai pemisahan huruf dengan angka pada id order menjadi integer
-				$idSuratInt = intval($rawSurati);
+				$idSuratInt = intval($rawIdSurat);
 
 				// Menghitung panjang id yang sudah menjadi integer
 				if (strlen($idSuratInt) == 1) {
 					// jika panjang id hanya 1 angka
-					$id_surat = "S001" . ($idSuratInt + 1);
+					$id_surat = "SU001" . ($idSuratInt + 1);
 				} else if (strlen($idSuratInt) == 2) {
 					// jika panjang id hanya 2 angka
-					$id_surat = "S001" . ($idSuratInt + 1);
+					$id_surat = "SU01" . ($idSuratInt + 1);
 				} else if (strlen($idSuratInt) == 3) {
 					// jika panjang id hanya 3 angka
-					$id_surat = "S1" . ($idSuratInt + 1);
+					$id_surat = "SU1" . ($idSuratInt + 1);
 				}
 			}
 		} else {
@@ -64,12 +64,12 @@ class C_surat extends CI_Controller {
         );
         $this->load->view('admin/templates/header');
 		$this->load->view('admin/templates/sidebar');
-		$this->load->view('admin/v_tambah_surat', $data);
+		$this->load->view('admin/v_inputsurat', $data);
 		$this->load->view('admin/templates/footer');
 
     }
 
-    public function tambah_surat(){
+    public function aksi_tambah_surat(){
         // ini adalah baris kode yang berfungsi merekam data yang diinput oleh pengguna
         $id_surat = $this->input->post('id_surat');
         $id_opd = $this->input->post('id_opd');
@@ -88,25 +88,26 @@ class C_surat extends CI_Controller {
                       
                 );
                 // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
-                  $this->m_data_surat->input_data($data,'surat');
+                  $this->m_data_surat->tambah_surat($data,'surat');
               // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
-              redirect('admin/C_surat/index');
+              redirect('admin/C_surat/tampil_surat');
               }
 
               function hapus($id){
                 // baaris kode ini berisi fungsi untuk menyimpan id user kedalam array $where pada index array bernama 'id'
               $where = array('id_surat' => $id);
               // kode di bawah ini untuk menjalankan query hapus yang berasal dari method hapus_data() pada model m_data
-                  $this->m_data_surat->hapus_data2($where,'admin');
+                  $this->m_data_surat->hapus_surat($where,'surat');
               // kode yang berfungsi mengarakan pengguna ke link base_url()crud/index/
-              redirect('admin/C_surat/index');
+              redirect('admin/C_surat/tampil_surat');
               }
 
               function edit($id){
                 // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
-                $where = array('id_surat' => $id);
+                $where = array(
+                    'surat.id_surat' => $id);
                 // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
-                $data['admin'] = $this->m_data_surat->edit_data($where,'admin')->result();
+                $data['surat'] = $this->m_data_surat->edit()($where,'surat')->result();
                 // kode ini memuat vie edit dan membawa data hasil query diatas
                 $this->load->view('admin/templates/header');
                 $this->load->view('admin/templates/sidebar');
@@ -119,32 +120,30 @@ class C_surat extends CI_Controller {
         function update(){
             // keenam baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
                 
-                $id_surat= $this->input->post('id_surat');
-                $id_opd= $this->input->post('id_opd');
-                $tgl_kirim = $this->input->post('tgl_kirim');
-                $tgl_terima= $this->input->post('tgl_terima');
-                $perihal= $this->input->post('perihal');
-                $file= $this->input->post('file');
-            
-            
-                // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
-                $data = array(
-                    'id_admin' => $id_admin,
-                    'id_opd' => $id_opd,
-                    'tgl_kirim' => $tgl_kirim,
-                    'tgl_terima' => $tgl_terima,
-                    'perihal' => $perihal,
-                    'file' => $file,
+            $id_surat = $this->input->post('id_surat');
+            $id_opd = $this->input->post('id_opd');
+            $tgl_kirim = $this->input->post('tgl_kirim');
+            $tgl_terima = $this->input->post('tgl_terima');
+            $perihal = $this->input->post('perihal');
+            $file = $this->input->post('file');
+                    // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
+                      $data = array(
+                          'id_surat' => $id_surat,
+                          'id_opd' => $id_opd,
+                          'tgl_kirim' => $tgl_kirim,
+                          'tgl_terima' => $tgl_terima,
+                          'perihal' => $perihal,
+                          'file' => $file,
                 );
             
                 // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
                 $where = array(
-                    'id_admin' => $id_admin
+                    'id_surat' => $id_surat
                 );
             
                 // kode untuk melakukan query update dengan menjalankan method update_data() 
-                $this->m_data_surat->update_data($where,$data,'admin');
+                $this->m_data_surat->update_surat($where,$data,'surat');
                 // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
-                redirect('admin/C_surat/index');
+                redirect('admin/C_surat/tampil_surat');
             }
 }
