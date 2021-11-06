@@ -28,8 +28,8 @@
                         <input type="username" class="form-control form-control-user" id="tgl_terima" name="tgl_terima" placeholder="masukkan tanggal terima" title="Isikan data dengan benar" required>
                     </div>
                     <div class="form-group">
-                        <label for="password"> File : </label>
-                        <input type="password" name="file" class="form-control form-control-user" id="file" placeholder="Masukkan Password" title="Isikn data dengan benar" required>
+                        <label for="file"> File : </label>
+                        <input type="file" name="file" class="form-control form-control-user" id="file" placeholder="upload file surat" title="Isikn data dengan benar" required>
                     </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Tambah</button>
