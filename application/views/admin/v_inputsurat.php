@@ -21,7 +21,7 @@
                     </div> -->
                     <div class="form-group">
                         <label for="tgl_kirim"> Tanggal Kirim : </label>
-                        <input type="text" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="masukan tanggal kirim" title="Isikan data dengan benar" required pattern="[a-zA-Z\s]+">
+                        <input type="text" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="masukkan tanggal kirim" title="Isikan data dengan benar" required pattern="[a-zA-Z\s]+">
                     </div>
                     <div class="form-group">
                         <label for="tgl_terima"> Tanggal Terima : </label>

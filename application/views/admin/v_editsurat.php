@@ -25,11 +25,11 @@
                     </div>-->
                     <div class="form-group">
                         <label for="tgl_kirim"> Tanggal Kirim : </label>
-                        <input type="text" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="Masukan Nama OPD Baru" title="Isikan data dengan benar" value="<?php echo $su->tgl_kirim ?>" required>
+                        <input type="text" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="Masukkan Nama OPD Baru" title="Isikan data dengan benar" value="<?php echo $su->tgl_kirim ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="tgl_terima"> tanggal Terima </label>
-                        <input type="text" name="tgl_terima" class="form-control form-control-user" id="tgl_terima" placeholder="Masukkan Username Baru" title="Isikn data dengan benar" value="<?php echo $su->tgl_terima ?>" required>
+                        <label for="tgl_terima"> Tanggal Terima </label>
+                        <input type="text" name="tgl_terima" class="form-control form-control-user" id="tgl_terima" placeholder="Masukkan Username Baru" title="Isikan data dengan benar" value="<?php echo $su->tgl_terima ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="file"> FILE: </label>
