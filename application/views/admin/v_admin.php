@@ -3,7 +3,7 @@
 
 <!-- Page Heading -->
 
-<h1 class="h3 mb-2 text-gray-800">Data Admin <a class="btn btn-primary" href="<?= base_url() . 'admin/C_admin/tambah_admin/'; ?>">
+<h1 class="h3 mb-2 text-gray-800"> Data Admin <a class="btn btn-primary" href="<?= base_url() . 'admin/C_admin/tambah_admin/'; ?>">
 <i class="fas fa-user-plus" disabled></i></a></h1>'
 
 <!-- DataTales Example -->

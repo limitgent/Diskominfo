@@ -19,7 +19,7 @@
           <tr>
             <th>ID Surat</th>
             <th>ID OPD</th>
-            <th>Tgl Kirim</th>
+            <th>Tanggal Kirim</th>
             <th>Tanggal Terima</th>
             <th>Perihal</th>
             <th>File</th>

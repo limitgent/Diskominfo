@@ -24,7 +24,7 @@
                         
                     </div>-->
                     <div class="form-group">
-                        <label for="tgl_kirim"> Tanggal Kirim : </label>
+                        <label for="tgl_kirim"> Tanggal Kirim </label>
                         <input type="text" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="Masukkan Nama OPD Baru" title="Isikan data dengan benar" value="<?php echo $su->tgl_kirim ?>" required>
                     </div>
                     <div class="form-group">
