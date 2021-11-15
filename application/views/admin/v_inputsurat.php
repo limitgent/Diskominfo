@@ -1,7 +1,7 @@
 <div class="container-fluid">
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Tambah Admin</h1>
+                <h1 class="h3 mb-0 text-gray-800">Tambah Surat</h1>
             </div>
 
             <!-- Content Row -->
@@ -15,17 +15,17 @@
                         <label for="id_surat"> ID surat : </label>
                         <input type="text" name="id_surat" id="id_surat" value="<?= $id_surat; ?>" class="form-control" readonly>
                     </div>
-                    <!--<div class="form-group">
+                    <div class="form-group">
                         <label for="id_opd"> ID OPD : </label>
                         <input type="text" name="id_opd" id="id_opd" value="<?= $id_opd; ?>" class="form-control" readonly>
                     </div> -->
                     <div class="form-group">
                         <label for="tgl_kirim"> Tanggal Kirim : </label>
-                        <input type="text" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="masukkan tanggal kirim" title="Isikan data dengan benar" required pattern="[a-zA-Z\s]+">
+                        <input type="date" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="masukkan tanggal kirim" title="Isikan data dengan benar" required pattern="[a-zA-Z\s]+">
                     </div>
                     <div class="form-group">
                         <label for="tgl_terima"> Tanggal Terima : </label>
-                        <input type="username" class="form-control form-control-user" id="tgl_terima" name="tgl_terima" placeholder="masukkan tanggal terima" title="Isikan data dengan benar" required>
+                        <input type="date" class="form-control form-control-user" id="tgl_terima" name="tgl_terima" placeholder="masukkan tanggal terima" title="Isikan data dengan benar" required>
                     </div>
                     <div class="form-group">
                         <label for="file"> File : </label>
