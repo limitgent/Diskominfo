@@ -45,6 +45,14 @@
           <hr class="sidebar-divider">
 
           <span class="nav-item">
+          <a class="nav-link" href="<?= base_url('admin/Janji/tampil_status') ?>">
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Status Kehadiran</span></a>
+          </li>
+
+          <hr class="sidebar-divider">
+
+          <span class="nav-item">
             <a class="nav-link" href="<?= base_url('admin/C_surat/tampil_surat') ?>">
               <i class="fas fa-fw fa-address-card"></i>
               <span>Surat</span></a>

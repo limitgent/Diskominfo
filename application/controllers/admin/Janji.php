@@ -308,4 +308,14 @@ class Janji extends CI_Controller {
             redirect('admin/Janji/detail_divisi/'.$id_divisi);
         }
 
+        public function tampil_status(){
+            // ini adalah variabel array $data yang memiliki index user, berguna untuk menyimpan data 
+            //$data['divisi'] = $this->m_data_janji->tampil_divisi()->result();
+            // ini adalah baris kode yang berfungsi menampilkan v_tampil dan membawa data dari tabel user
+            $this->load->view('admin/templates/header');
+            $this->load->view('admin/templates/sidebar');
+            $this->load->view('admin/v_status_karyawan');
+            $this->load->view('admin/templates/footer');
+            }
+
 }
