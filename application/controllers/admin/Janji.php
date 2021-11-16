@@ -8,7 +8,7 @@ class Janji extends CI_Controller {
             // ini adalah function untuk memuat model bernama m_data
         $this->load->model('m_data_janji');
         // 
-            $this->load->helper('url');
+            $this->load->helper('url','form');
 
             if($this->session->userdata('status') != "login") {
                 redirect(base_url("admin/C_login"));
@@ -163,12 +163,27 @@ class Janji extends CI_Controller {
               $id_divisi = $this->input->post('id_divisi');
               $nama_karyawan = $this->input->post('nama_karyawan');
               $jabatan = $this->input->post('jabatan');
+              $foto = $_FILES['foto'];
+
+              if ($foto=''){}else{
+                $config['upload_path']          = './assets/img/karyawan';
+                $config['allowed_types']        ='jpg|png|jpeg|gif|JPG|JPEG';
+    
+                $this->load->library('upload',$config);
+                if(!$this->upload->do_upload('foto')) {
+                    //echo "Upload Gagal"; die();
+                }else{
+                    $foto=$this->upload->data('file_name');
+                }
+    
+            }
             // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
               $data = array(
                   'nip' => $nip,
                   'id_divisi' => $id_divisi,
                   'nama_karyawan' => $nama_karyawan,
-                  'jabatan' => $jabatan
+                  'jabatan' => $jabatan,
+                  'foto' => $foto
                   
             );
             // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
@@ -176,7 +191,7 @@ class Janji extends CI_Controller {
           // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
           redirect('admin/Janji/detail_divisi/'.$this->uri->segment(4));
           }
-          function tampilDetailKaryawan($nip, $id_divisi)
+        function tampilDetailKaryawan($nip, $id_divisi)
 	{
 		// Mendapatkan Id Produk Soal dari URL
 		$NIP = $nip;
@@ -200,8 +215,18 @@ class Janji extends CI_Controller {
 	{
 		//function hapus menangkap NIK dari pengiriman NIK yang ditampilkan di view masuk
 		$where = array('nip' => $nip); // kemudian diubah menjadi array
+        $foto = $this->db->get_where('karyawan',$where);
 		$this->m_data_janji->delete_karyawan($where, 'karyawan'); //dan barulah kita kirim data array hapus tersebut pada m_data_soal yang ditangkap oleh function hapus_data
 		// id paket disini merujuk pada id paket soal mana yang digunakan sekarang
+        
+        if($foto->num_rows($where)>0){
+            $pros=$foto->row();
+            $name=$pros->foto;
+           
+            if(file_exists($lok=FCPATH.'/assets/img/karyawan/'.$name)){
+              unlink($lok);
+            }
+          }
 		redirect('admin/Janji/detail_divisi/' . $id_divisi); // setelah itu langsung diarah kan ke function index yang menampilkan v_masuk
 	}
 
@@ -209,7 +234,6 @@ class Janji extends CI_Controller {
 	{
 		// fungsi variabel id_paket_uri adalah sebagai penanda kita berada di paket soal yang mana
 		//function edit menangkap NIK dari pengiriman NIKyang ditampilkan di v_masuk
-		echo $nip;
 		$where = array('nip' => $nip); // kemudian diubah menjadi array
         $data1['id_divisi'] = $id_divisi;
         $result = $this->m_data_janji->edit_divisi($data1,'divisi')->result();
@@ -228,9 +252,38 @@ class Janji extends CI_Controller {
         // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
             
             $id_divisi= $this->input->post('id_divisi');
+            $foto = $_FILES['foto'];
             $nip= $this->input->post('nip');
             $nama_karyawan= $this->input->post('nama_karyawan');
             $jabatan= $this->input->post('jabatan');
+            
+
+         $where= array('nip' =>$nip );
+          $foto_karyawan = $this->db->get_where('karyawan',$where);
+          if ($foto =''){}else{
+            $config['upload_path']          = './assets/img/karyawan';
+            $config['allowed_types']        ='jpg|png|jpeg|gif|JPG|JPEG';
+
+            
+            $this->load->library('upload',$config);
+            if(!$this->upload->do_upload('foto')) {
+                //echo "Upload Gagal"; die();
+            }else{
+                $foto=$this->upload->data('file_name');
+                
+                if($foto_karyawan->num_rows()>0){
+                    $pros=$foto_karyawan->row();
+                    $name=$pros->foto;
+                   
+                    if(file_exists($lok=FCPATH.'/assets/img/karyawan/'.$name)){
+                        unlink($lok);
+                    }
+            }
+            
+        }
+
+        }
+
         
             // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
             $data = array(
@@ -240,7 +293,10 @@ class Janji extends CI_Controller {
                 'jabatan' => $jabatan,
                 
             );
-        
+            if ($foto != NULL) {
+
+                $data['foto'] = $foto;
+                }
             // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
             $where = array(
                 'nip' => $nip

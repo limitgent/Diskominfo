@@ -14,7 +14,7 @@
                 foreach($karyawan as $kar) ?>
                 <?php
                 foreach($divisi as $div) ?>
-                 <form action="<?php echo base_url() . 'admin/Janji/update_karyawan/'.$div->id_divisi; ?>" method="post">
+                 <?php echo form_open_multipart('admin/Janji/update_karyawan/'.$div->id_divisi) ;?>
                     <div class="form-group">
                         <label for="id_divisi"> Nama Divisi : </label>
                         <input type="hidden" class="form-control form-control-user"  id="id_divisi" name="id_divisi" value="<?php echo $div->id_divisi ?>">
@@ -32,9 +32,24 @@
                         <label for="jabatan"> Jabatan : </label>
                         <input type="text" class="form-control form-control-user" id="jabatan" name="jabatan" value="<?php echo $kar->jabatan ?>" placeholder="Masukan Jabatan" title="Isikan data dengan benar" required>
                     </div>
+                    <div class="form-group">
+                        <label for="foto"> Edit Foto Karyawan Jika Diperlukan </label>
+                        <fieldset class="form-group">
+                        <?php
+                            if($kar->foto==''){?>
+                                <label>Belum Ada Gambar</label><br>
+                            <?php }else{ ?>
+                            <img src="<?php echo base_url('assets/img/karyawan/'.$kar->foto)?>" width="90" height="110"><br>
+                            <?php }?>
+                                <fieldset class="form-group">
+                                    <div>
+                                        <?php echo $kar->foto; ?></div>
+                                           <input type="file" class="form-control" id="foto" name="foto" value="<?= $kar->foto;?>">
+                                </fieldset>
+                    </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Simpan</button>
-                </form>
+                    <?php echo form_close();?>
                 <br>
                 <div class="text-center">
                     <div class="row">
