@@ -1,58 +1,96 @@
-<div class="container-fluid">
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Page Heading -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-<div class="card-content collapse show">
-      <div class="card-body">
-          <a href="<?= base_url() . 'admin/Janji/set_status'; ?>"><button type="button" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="ft-plus"> </i> Setting Kehadiran</button></a>
- </div>
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Karyawan Available</h6>
+    <div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        
+        <div class="card-content collapse show">
+            <div class="card-body">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Setting Kehadiran
+            </button>
+            <div>
+            <div class="card-header py-3">
+              <h10 class="m-0 font-weight-bold text-primary">Data Karyawan Di Kantor</h10>
+            </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>ID Divisi</th>
+                          <th>Nama Divisi</th>
+                          <th>Ket Divisi</th>
+                          <th>Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Setting Kehadiran</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="<?php echo base_url() . 'admin/Janji/set_status/'; ?>" method="get">
+      <div class="modal-body">
+        <h5 class="mt-2">Pilih Divisi Karyawan</h5>
+        <fieldset class="form-group">
+        <select name="id_divisi" id="id_divisi" class\="custom-select">
+                                            
+            <?php
+                foreach ($set as $s) :
+            ?>
+                <option value="<?= $s->id_divisi;?>"><?= $s->nama_divisi;?></option>
+            <?php
+                endforeach;
+            ?>             
+        </select>
+        </fieldset>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary">Cek</button>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr> 
-            <th>Nama Divisi</th>
-            <th>Foto</th>
-            <th>NIP</th>
-            <th>Nama Karyawan</th>
-            <th>Jabatan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Ini tempat Divisi</td>
-            <td>Ini tempat FOTO</td>
-            <td>Ini tempat NIP</td>
-            <td>INI TEMPAT KARYAWAN</td>
-            <td>JABATANNYA</td>
-          </tr>
-          </tbody>
-        </table>
-        </div>
-    </div>
-    </div>
-
 </div>
-<!-- /.container-fluid -->
 
-</div>
-      <!-- End of Main Content -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
+  </head>
+  <body>
+   
 
-    </div>
-    <!-- End of Content Wrapper -->
+    <!-- Optional JavaScript; choose one of the two! -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

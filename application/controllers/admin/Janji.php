@@ -7,8 +7,9 @@ class Janji extends CI_Controller {
         parent::__construct();	
             // ini adalah function untuk memuat model bernama m_data
         $this->load->model('m_data_janji');
+        $this->load->model('m_data_kehadiran');
         // 
-            $this->load->helper('url','form');
+            $this->load->helper('url','form','file');
 
             if($this->session->userdata('status') != "login") {
                 redirect(base_url("admin/C_login"));
@@ -309,13 +310,28 @@ class Janji extends CI_Controller {
         }
 
         public function tampil_status(){
-            // ini adalah variabel array $data yang memiliki index user, berguna untuk menyimpan data 
-            //$data['divisi'] = $this->m_data_janji->tampil_divisi()->result();
-            // ini adalah baris kode yang berfungsi menampilkan v_tampil dan membawa data dari tabel user
+
+            $data['set'] = $this->m_data_kehadiran->tampil_divisi()->result();
+
             $this->load->view('admin/templates/header');
             $this->load->view('admin/templates/sidebar');
-            $this->load->view('admin/v_status_karyawan');
+            $this->load->view('admin/v_status_karyawan',$data);
             $this->load->view('admin/templates/footer');
             }
+
+        public function set_status(){
+
+            //$id_divisi = $this->input->get('id_divisi');
+            //$karyawan = $this->m_data_kehadiran->tampil_karyawan($id_divisi,'karyawan');
+            //$data = array(
+                //'karyawan' => $karyawan
+             $data['karyawan'] = $this->m_data_kehadiran->tampil_allkaryawan()->result();
+    
+                $this->load->view('admin/templates/header');
+                $this->load->view('admin/templates/sidebar');
+                $this->load->view('admin/v_tampilset_status',$data);
+                $this->load->view('admin/templates/footer');
+                }
+    
 
 }
