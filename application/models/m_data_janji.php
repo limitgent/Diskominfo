@@ -50,6 +50,7 @@ class M_data_janji extends CI_Model{
       "divisi.nama_divisi",
       "karyawan.nama_karyawan",
       "karyawan.jabatan",
+      "karyawan.foto",
        
     );
 
