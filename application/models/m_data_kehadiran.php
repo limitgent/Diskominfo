@@ -30,4 +30,9 @@ class M_data_kehadiran extends CI_Model{
     {
       return $this->db->get('karyawan');
     }
+    function update_status_karyawan($where,$data,$table){
+        $this->db->where($where);
+        $this->db->update($table,$data);
+      }	
+    
   }

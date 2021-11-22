@@ -331,7 +331,30 @@ class Janji extends CI_Controller {
                 $this->load->view('admin/templates/sidebar');
                 $this->load->view('admin/v_tampilset_status',$data);
                 $this->load->view('admin/templates/footer');
-                }
+        }
+
+        //public function updatestatus(){
+            // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+               
+                //$nip= $this->input->post('nip');
+                //$status= $this->input->post('status');
+            
+                // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
+                //$data = array(
+                   // 'status' => $status
+                    
+               // );
+            
+                // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
+               // $where = array(
+                    //'nip' => $nip
+                //);
+            
+                // kode untuk melakukan query update dengan menjalankan method update_data() 
+               // $this->m_data_kehadiran->update_status_karyawan($where,$data,'karyawan');
+                // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+                //redirect('admin/Janji/tampil_status');
+           // }
     
 
 }
