@@ -29,19 +29,12 @@ class M_data_surat extends CI_Model{
     $this->db->where($where);
     $this->db->update($table,$data);
   }	
-  function tambah_surat ($data, $table)
-  {
-    $this->db->insert($table, $data);
-  }
-  function tampil_surat()
-  {
-    return $this->db->get('surat');
-  }
+
   function delete_surat($where, $table)
   {
     $this->db->delete($table, $where);
   }
-  function tampil_surat_where($where, $table)
+  function tampil_surat ($where, $table)
 {
     $fields = array(
       "id_surat",
@@ -51,7 +44,13 @@ class M_data_surat extends CI_Model{
       "perihal",
       "file",
     );
-  }  
+
+    $this->db->select($fields);
+    $this->db->from($table);
+    $this->db->join('surat', 'surat.id_surat = surat.id_surat');
+    $this->db->where($where);
+    return $this->db->get();
+  }
     function edit_surat($where,$table){		
       return $this->db->get_where($table,$where);
     }
