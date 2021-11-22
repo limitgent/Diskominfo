@@ -34,5 +34,27 @@ class M_data_kehadiran extends CI_Model{
         $this->db->where($where);
         $this->db->update($table,$data);
       }	
-    
+      public function tampil_karyawan_availabel()
+  {
+    $status = 'Dikantor';
+    $fields = array(
+        "karyawan.nip",
+        "divisi.id_divisi",
+        "divisi.nama_divisi",
+        "karyawan.nama_karyawan",
+        "karyawan.jabatan",
+        "karyawan.foto",
+        "karyawan.status",
+         
+      );
+      $this->db->select($fields);
+      $this->db->from('karyawan');
+      $this->db->join('divisi', 'karyawan.id_divisi = divisi.id_divisi');
+      $this->db->where('karyawan.status', $status);
+      $query = $this->db->get();
+      return $query;
   }
+  }
+      
+    
+  

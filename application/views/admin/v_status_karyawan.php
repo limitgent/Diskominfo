@@ -26,19 +26,30 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                         <tr>
-                          <th>ID Divisi</th>
-                          <th>Nama Divisi</th>
-                          <th>Ket Divisi</th>
-                          <th>Aksi</th>
+                          <th>Divisi</th>
+                          <th>Foto</th>
+                          <th>NIP</th>
+                          <th>Nama</th>
+                          <th>Jabatan</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
+                      <tbody> 
+                      <?php 
+                        foreach ($karyawan as $kar ) { ?>
+                          <tr>
+                          <td><?=$kar->id_divisi?></td>
+                            <td><?php
+                            if($kar->foto==''){?>
+                              <label>Belum Ada Gambar</label><br>
+                                <?php }else{ ?>
+                                  <img src="<?php echo base_url('assets/img/karyawan/'.$kar->foto)?>" width="90" height="110"><br>
+                                  <?php }?></td></td>
+                            <td><?=$kar->nip?></td>
+                            <td><?=$kar->nama_karyawan?></td>
+                            <td><?=$kar->jabatan?></td>
+                            <td><?=$kar->status?></td>
+                            <?php } ?>
                         </tbody>
                       </table>
                       </div>
