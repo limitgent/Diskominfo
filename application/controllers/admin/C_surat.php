@@ -102,12 +102,11 @@ class C_surat extends CI_Controller {
               redirect('admin/C_surat/tampil_surat');
               }
 
-              function edit($id){
+              public function edit_surat($id){
                 // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
-                $where = array(
-                    'surat.id_surat' => $id);
+                $where = array('id_surat' => $id);
                 // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
-                $data['surat'] = $this->m_data_surat->edit()($where,'surat')->result();
+                $data['surat'] = $this->m_data_surat->edit_surat($where,'surat')->result();
                 // kode ini memuat vie edit dan membawa data hasil query diatas
                 $this->load->view('admin/templates/header');
                 $this->load->view('admin/templates/sidebar');
