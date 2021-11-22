@@ -12,7 +12,7 @@
             <div class="col-lg-10">
                 <?php
                 foreach($divisi as $div) ?>
-                 <form action="<?php echo base_url() . 'admin/Janji/aksitambah_karyawan/'.$div->id_divisi ; ?>" method="post">
+                 <?php echo form_open_multipart('admin/Janji/aksitambah_karyawan/'.$div->id_divisi) ;?>
                     <div class="form-group">
                         <label for="id_divisi"> Nama Divisi : </label>
                         <input type="hidden" class="form-control form-control-user"  id="id_divisi" name="id_divisi" value="<?php echo $div->id_divisi ?>">
@@ -30,9 +30,13 @@
                         <label for="jabatan"> Jabatan : </label>
                         <input type="text" class="form-control form-control-user" id="jabatan" name="jabatan" placeholder="Masukan Jabatan" title="Isikan data dengan benar" required>
                     </div>
+                    <div class="form-group">
+                        <label for="foto"> Foto Karyawan : </label>
+                        <input type="file" class="form-control form-control-user" id="foto" name="foto" placeholder="Masukan foto" title="Isikan foto Karyawan" required>
+                    </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Tambah</button>
-                </form>
+                    <?php echo form_close();?>
                 <br>
                 <div class="text-center">
                     <div class="row">
@@ -66,6 +70,7 @@
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr> 
+            <th>Foto</th>
             <th>NIP</th>
             <th>Nama Karyawan</th>
             <th>Jabatan</th>
@@ -76,6 +81,13 @@
         <?php 
         foreach ($karyawan as $kar ) { ?>
           <tr>
+            <td>
+            <?php
+            if($kar->foto==''){?>
+              <label>Belum Ada Gambar</label><br>
+                <?php }else{ ?>
+                  <img src="<?php echo base_url('assets/img/karyawan/'.$kar->foto)?>" width="90" height="110"><br>
+                  <?php }?></td>
             <td><?=$kar->nip?></td>
             <td><?=$kar->nama_karyawan?></td>
             <td><?=$kar->jabatan?></td>
