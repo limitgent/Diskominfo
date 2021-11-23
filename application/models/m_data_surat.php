@@ -18,18 +18,13 @@ class m_data_surat extends CI_Model{
     function edit_surat($where,$table){		
       return $this->db->get_where($table,$where);
   }
-  public function tampil_surat(){
-    return $this->db->get('surat');
-  }
+  
   function tampil_surat_akhir()
   {
   $this->db->order_by('id_surat', 'DESC');
   return $this->db->get('surat', 1);
   }
-  function hapus_surat($where,$table){
-    $this->db->where($where);
-    $this->db->delete($table);
-}
+  
 
 function edit($where,$table){		
   return $this->db->get_where($table,$where);
