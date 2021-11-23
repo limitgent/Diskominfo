@@ -7,7 +7,6 @@ class C_surat extends CI_Controller {
         parent::__construct();	
             // ini adalah function untuk memuat model bernama m_data
         $this->load->model('m_data_surat');
-        // 
         $this->load->helper('url');
 
             if($this->session->userdata('status') != "login") {
@@ -64,7 +63,7 @@ class C_surat extends CI_Controller {
         );
         $this->load->view('admin/templates/header');
 		$this->load->view('admin/templates/sidebar');
-		$this->load->view('admin/v_inputsurat', $data);
+		$this->load->view('admin/v_tambahsurat', $data);
 		$this->load->view('admin/templates/footer');
 
     }
