@@ -23,6 +23,8 @@
             <th>Tanggal Terima</th>
             <th>Perihal</th>
             <th>File</th>
+            <th>Status</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +37,8 @@
             <td><?=$su->tgl_terima?></td>
             <td><?=$su->perihal?></td>
             <td><?=$su->file?></td>
+            <td><?=$su->status?></td>
+            
             <td>
               <a class="btn btn-primary" href="<?php echo base_url('admin/C_surat/edit/'. $su->id_surat); ?>"><i class="fas fa-pencil-alt"></i></a>
               <a class="btn btn-danger" href="<?php echo base_url('admin/C_surat/hapus/'. $su->id_surat); ?>"><i class="fas fa-trash"></i></a>

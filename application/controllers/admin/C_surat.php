@@ -76,6 +76,7 @@ class C_surat extends CI_Controller {
         $tgl_terima = $this->input->post('tgl_terima');
         $perihal = $this->input->post('perihal');
         $file = $this->input->post('file');
+        $status = $this->input->post('status');
         
                 // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
                   $data = array(
@@ -85,6 +86,7 @@ class C_surat extends CI_Controller {
                       'tgl_terima' => $tgl_terima,
                       'perihal' => $perihal,
                       'file' => $file,
+                      'status' => $status,
                       
                 );
                 // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
@@ -134,6 +136,7 @@ class C_surat extends CI_Controller {
             $tgl_terima = $this->input->post('tgl_terima');
             $perihal = $this->input->post('perihal');
             $file = $this->input->post('file');
+            $status = $this->input->post('status');
                     // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
                       $data = array(
                           'id_surat' => $id_surat,
@@ -142,6 +145,7 @@ class C_surat extends CI_Controller {
                           'tgl_terima' => $tgl_terima,
                           'perihal' => $perihal,
                           'file' => $file,
+                          'status' => $status,
                 );
             
                 // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
