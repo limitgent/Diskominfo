@@ -652,7 +652,7 @@
           <div class="row">
             <div class="col-lg- 50">
             <div class="footer">
-                <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
+                <p>Copyright © 2022 Edu Meeting Co., Ltd. All RightSSs Reserved. 
                 <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
             </div>
             </div>
