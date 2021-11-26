@@ -18,11 +18,11 @@
                         <input type="text" class="form-control form-control-user"  id="id_surat" name="id_surat" value="<?php echo $su->id_surat ?>" readonly>
                         
                     </div>
-                    <!--<div class="form-group">
+                    <div class="form-group">
                         <label for="id_divisi"> ID OPD: </label>
                         <input type="text" class="form-control form-control-user"  id="id_opd" name="id_opd" value="<?php echo $su->id_opd ?>" readonly>
                         
-                    </div>-->
+                    </div>
                     <div class="form-group">
                         <label for="tgl_kirim"> Tanggal Kirim </label>
                         <input type="text" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="Masukkan Nama OPD Baru" title="Isikan data dengan benar" value="<?php echo $su->tgl_kirim ?>" required>

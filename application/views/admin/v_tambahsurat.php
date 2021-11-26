@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="id_opd"> ID OPD : </label>
-                <input type="text" class="form-control form-control-user" id="id_opd" name="id_opd" placeholder="Masukkan ID OPD" title="isikan data dengan benar" required>
+                <input type="text" name="id_opd" id="id_opd" value="<?= $id_opd; ?>" class="form-control" readonly>
             </div>
             <div class="form-group">
                 <label for="tgl_kirim"> Tanggal Kirim : </label>
@@ -36,16 +36,6 @@
                 <input type="text" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
-            <div class="form-group">
-                <label for="status">Status</label>
-                <select class="form-control" name="status" id="status" required>
-                    <option>Pilih Status :</option>
-                    <option>Belum Terkonfirmasi</option>
-                    <option>Menunggu Konfirmasi</option>
-                    <option>Terima</option>
-                    <option>Tolak</option>
-                </select>
-            </div>
 
             <div class="form-group text-center">`
                 <button class="btn btn-primary px-2 mr-1" type="submit">Simpan</button>
