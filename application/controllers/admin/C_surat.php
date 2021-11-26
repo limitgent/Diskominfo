@@ -97,7 +97,9 @@ class C_surat extends CI_Controller {
 
               function hapus_surat($id){
                 // baaris kode ini berisi fungsi untuk menyimpan id user kedalam array $where pada index array bernama 'id'
-              $where = array('id_surat' => $id);
+              $where = array(
+                  'id_surat' => $id
+                );
               // kode di bawah ini untuk menjalankan query hapus yang berasal dari method hapus_data() pada model m_data
                   $this->m_data_surat->hapus_surat($where,'surat');
               // kode yang berfungsi mengarakan pengguna ke link base_url()crud/index/
@@ -108,11 +110,11 @@ class C_surat extends CI_Controller {
                 // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
                 $where = array('id_surat' => $id);
                 // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
-                $data['surat'] = $this->m_data_surat->edit_surat($where,'surat')->result();
+                $data['atursurat'] = $this->m_data_surat->edit_surat($where,'surat')->result();
                 // kode ini memuat vie edit dan membawa data hasil query diatas
                 $this->load->view('admin/templates/header');
                 $this->load->view('admin/templates/sidebar');
-                $this->load->view('admin/v_editsurat',$data);
+                $this->load->view('admin/edit_surat',$data);
                 $this->load->view('admin/templates/footer');
                
             }
