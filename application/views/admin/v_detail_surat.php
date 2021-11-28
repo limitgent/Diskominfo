@@ -9,46 +9,41 @@
             </div>
             <div class="card-body">
 
-                <?php 
-                foreach ($detail as $dtl) {
-                    $kry = $this->db->query("SELECT nama_karyawan FROM karyawan WHERE nip = '$dtl->nip'")->row();
-                    $nop = $this->db->query("SELECT nama_opd FROM opd WHERE id_opd = '$dtl->id_opd'")->row(); ?>
-
                     <table class="table table-borderless">
                         <thead>
                             <tr>
                                 <th>ID Surat</th>
                                 <th>:</th>
-                                <th><?= $dtl->id_surat ?></th>
+                                <th><?= $su->id_surat ?></th>
                             </tr>
                             <tr>
                                 <th>ID OPD</th>
                                 <th>:</th>
-                                <th><?= $dtl->id_opd ?></th>
+                                <th><?= $su->id_opd ?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Tanggal Kirim</td>
                                 <td>:</td>
-                                <td><?= $kry->tgl_kirim ?></td>
+                                <td><?= $su->tgl_kirim ?></td>
                             </tr>
 
                             <tr>
                                 <td>Tanggal Terima</td>
                                 <td>:</td>
-                                <td><?= $nop->tgl_terima ?></td>
+                                <td><?= $su->tgl_terima ?></td>
                             </tr>
 
                             <tr>
                                 <td>Perihal</td>
                                 <td>:</td>
-                                <td><?= $dtl->perihal ?></td>
+                                <td><?= $su->perihal ?></td>
                             </tr>
                             <tr>
                                 <td>File</td>
                                 <td>:</td>
-                                <td><?= $dtl->file ?></td>
+                                <td><?= $su->file ?></td>
                             </tr>
 
                         </tbody>
