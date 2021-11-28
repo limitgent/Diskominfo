@@ -32,7 +32,7 @@
                 <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="masukkan perihal surat" title="masukkan perihal surat dengan benar" required>
             </div>
             <div class="form-group">
-                <label for="perihal"> file : </label>
+                <label for="perihal"> fFile : </label>
                 <input type="text" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
