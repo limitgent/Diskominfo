@@ -88,7 +88,7 @@ class C_surat extends CI_Controller {
                       
                 );
                 // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
-                  $this->m_data_surat->tambah_surat($surat,'surat');
+                  $this->m_data_surat->tambah_surat($data,'surat');
               // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
               redirect('admin/C_surat/tampil_surat');
               }
