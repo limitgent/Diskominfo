@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="id_opd"> ID OPD : </label>
-                <input type="text" name="id_opd" id="id_opd" value="<?= $id_opd; ?>" class="form-control" readonly>
+                <input type="text" class="form-control" id="id_opd" value="<?= $id_opd; ?> name="id_opd" readonly>
             </div>
             <div class="form-group">
                 <label for="tgl_kirim"> Tanggal Kirim : </label>
@@ -32,7 +32,7 @@
                 <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="masukkan perihal surat" title="masukkan perihal surat dengan benar" required>
             </div>
             <div class="form-group">
-                <label for="perihal"> fFile : </label>
+                <label for="perihal"> File : </label>
                 <input type="text" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
