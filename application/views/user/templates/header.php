@@ -36,7 +36,6 @@ https://templatemo.com/tm-569-edu-meeting
       <div class="row">
         <div class="col-lg-8 col-sm-8">
           <div class="left-content">
-            <p> template by TemplateMo website.</p>
           </div>
         </div>
         <div class="col-lg-4 col-sm-4">
@@ -67,7 +66,7 @@ https://templatemo.com/tm-569-edu-meeting
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li><a href="meetings.html">DEVISI </a></li>
+                          <li><a href="meetings.html">DIVISI </a></li>
                           <li class="scroll-to-section"><a href="#apply">Panduan</a></li>
                         <!-- <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
