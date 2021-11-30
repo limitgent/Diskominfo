@@ -57,9 +57,42 @@ class C_surat extends CI_Controller {
 			$id_surat = "SU001";
         }
         
-        
         $data = array( 
             'id_surat' => $id_surat
+        ); 
+        // Membuat fungsi untuk melakukan penambahan id produk secara otomatis
+		// Mendapatkan jumlah produk yang ada di database
+		$jumlahopd = $this->m_data_surat->tampil_surat()->num_rows();
+		// Jika jumlah produk lebih dari 0
+		if ($jumlahopd > 0) {
+			// Mengambil id produk sebelumnya
+			$lastId = $this->m_data_surat->tampil_surat_akhir()->result();
+			// Melakukan perulangan untuk mengambil data
+			foreach ($lastId as $row) {
+				// Melakukan pemisahan huruf dengan angka pada id produk
+				$rawIdopd = substr($row->id_opd, 3);
+				// Melakukan konversi nilai pemisahan huruf dengan angka pada id order menjadi integer
+				$idopdInt = intval($rawIdopd);
+
+				// Menghitung panjang id yang sudah menjadi integer
+				if (strlen($idopdInt) == 1) {
+					// jika panjang id hanya 1 angka
+					$id_opd = "OP00" . ($idopdInt + 1);
+				} else if (strlen($idopdInt) == 2) {
+					// jika panjang id hanya 2 angka
+					$id_opd = "OP0" . ($idopdInt + 1);
+				} else if (strlen($idopdInt) == 3) {
+					// jika panjang id hanya 3 angka
+					$id_opd = "OP" . ($idopdInt + 1);
+				}
+			}
+		} else {
+			// Jika jumlah paket soal kurang dari sama dengan 0
+			$id_opd = "OP001";
+        }
+        
+        $data = array( 
+            'id_opd' => $id_opd
         );
         $this->load->view('admin/templates/header');
 		$this->load->view('admin/templates/sidebar');
@@ -67,7 +100,6 @@ class C_surat extends CI_Controller {
 		$this->load->view('admin/templates/footer');
 
     }
-
     public function aksi_tambah_surat(){
         // ini adalah baris kode yang berfungsi merekam data yang diinput oleh pengguna
         $id_surat = $this->input->post('id_surat');
