@@ -29,12 +29,11 @@
     </div>
   </section>
 
-  <section class="upcoming-meetings" id="meetings">
+  <section class="upcoming-meetings" id="devisi">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <br>
             <br>
             <h2>DIVISI</h2>
           </div>
@@ -59,8 +58,7 @@
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
-                  <a href=""><img src="<?php echo base_url();?>assets/user/images/kominfo.png" alt="New Lecturer Meeting"></a>
-                                    
+                  <a href=""><img src="<?php echo base_url();?>assets/user/images/kominfo.png" alt="New Lecturer Meeting"></a>                  
                 </div>
                 <div class="down-content">
                   <div class="date">
@@ -80,30 +78,31 @@
 
   <section class="apply-now" id="apply">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 align-self-center">
           <div class="row">
+          <div class="section-heading">
+            <br>
+            <h2>PANDUAN</h2>
+          </div>
             <div class="col-lg-12">
               <div class="item">
-                <h3>APPLY FOR BACHELOR DEGREE</h3>
+                <h3>KIRIM SURAT</h3>
                 <p>You are allowed to use this edu meeting CSS template for your school or university or business. You can feel free to modify or edit this layout.</p>
                 <div class="main-button-red">
-                  <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
-              </div>
+                  <div class="scroll-to-section"><a href="#contact">TONTON VIDIO</a></div>
+                </div>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="item">
-                <h3>APPLY FOR BACHELOR DEGREE</h3>
+                <h3>JANJI TEMU</h3>
                 <p>You are not allowed to redistribute the template ZIP file on any other template website. Please contact us for more information.</p>
                 <div class="main-button-yellow">
-                  <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
-              </div>
-              </div>
-            </div>
+                  <div class="scroll-to-section"><a href="#contact">TONTON VIDIO</a></div>
+                </div>
+             </div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <!--<div class="col-lg-6">
           <div class="accordions is-first-expanded">
             <article class="accordion">
                 <div class="accordion-head">
@@ -160,8 +159,8 @@
                     </div>
                 </div>
             </article>
-        </div>
-        </div>
+        </div>/-->
+       
       </div>
     </div>
   </section>
@@ -497,7 +496,16 @@
   <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 align-self-center">
+      <div class="section-heading">
+            <br>
+            <h2>Contact Us</h2>
+     </div>
+     <div class="col-lg-8 align-self-center">
+     <div class="row">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.305852489731!2d113.69954891425772!3d-8.17191028416252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6943ace876f09%3A0x3badfa144578a391!2sDinas%20Komunikasi%20Dan%20Informatika%20(Kominfo)%20Kabupaten%20Jember!5e0!3m2!1sid!2sid!4v1638265016596!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+     </div>
+     </div>
+        <!--<div class="col-lg-8 align-self-center">
           <div class="row">
             <div class="col-lg-12">
               <form id="contact" action="" method="post">
@@ -534,26 +542,26 @@
               </form>
             </div>
           </div>
-        </div>
-        <div class="col-lg-3">
+        </div>-->
+        <div class="col-lg-4">
           <div class="right-info">
             <ul>
               <li>
-                <h6>Phone Number</h6>
-                <span>010-020-0340</span>
+                <h6>DISKOMINFO JEMBER</h6>
               </li>
               <li>
-                <h6>Email Address</h6>
-                <span>info@meeting.edu</span>
+                <h6>No Telepon</h6>
+                <span>(0331) 5102507</span>
               </li>
               <li>
-                <h6>Street Address</h6>
-                <span>Rio de Janeiro - RJ, 22795-008, Brazil</span>
+                <h6>Email</h6>
+                <span>diskominfo@jemberkab.go.id</span>
               </li>
               <li>
-                <h6>Website URL</h6>
-                <span>www.meeting.edu</span>
+                <h6>Alamat</h6>
+                <span>Jl. Dewi Sartika No.54, Kepatihan, Kecamatan Kaliwates, Kabupaten Jember, Jawa Timur 68131</span>
               </li>
+              
             </ul>
           </div>
         </div>
