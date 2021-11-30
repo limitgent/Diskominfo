@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="id_opd"> ID OPD : </label>
-                <input type="text" class="form-control" id="id_opd" value="<?= $id_opd; ?> name="id_opd" readonly>
+                <input type="text" name="id_opd" id="id_opd" value="<?= $id_opd; ?>" class="form-control" readonly>
             </div>
             <div class="form-group">
                 <label for="tgl_kirim"> Tanggal Kirim : </label>
