@@ -54,78 +54,24 @@
             </div>
           </div>
         </div>-->
-       
+        <?php 
+               foreach ($divisi as $div ) { ?>
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
+                  <a href=""><img src="<?php echo base_url();?>assets/user/images/kominfo.png" alt="New Lecturer Meeting"></a>
+                                    
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6> <span></span></h6>
                   </div>
-                  <a href="meeting-details.html"><h4> DIVISI PERHUBUNGAN</h4></a>
-                  
+                  <a href="<?php echo base_url('user/C_user/tampil_karyawan/'. $div->id_divisi); ?>"><h4> Divisi <?=$div->nama_divisi?></h4></a>
+                  <input type="hidden" name="id_divisi" id="id_divisi" value="<?= $div->id_divisi;?>">
                 </div>
               </div>
             </div>
-        
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-02.jpg" alt="Online Teaching"></a>
-                </div>
-                <div class="down-content">
-                  
-                  <a href="meeting-details.html"><h4>DIVISI KOMUNIKASI</h4></a>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-02.jpg" alt="Online Teaching"></a>
-                </div>
-                <div class="down-content">
-                
-                  <a href="meeting-details.html"><h4>DIVISI MULTIMEDIA</h4></a>
-                 
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-03.jpg" alt="Higher Education"></a>
-                </div>
-                <div class="down-content">
-                  
-                  <a href="meeting-details.html"><h4>DIVISI PROGRAMING</h4></a>
-                  
-                </div>
-              </div>
-            </div>
-            <!--<div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>$48.00</span>
-                  </div>
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-04.jpg" alt="Student Training"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>Nov <span>30</span></h6>
-                  </div>
-                  <a href="meeting-details.html"><h4>Student Training Meetup</h4></a>
-                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                </div>
-              </div>
-            </div>-->
+            <?php } ?>
           </div>
         </div>
       </div>
