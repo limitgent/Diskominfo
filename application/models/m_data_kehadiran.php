@@ -54,6 +54,24 @@ class M_data_kehadiran extends CI_Model{
       $query = $this->db->get();
       return $query;
   }
+  function tampil_karyawan_where($where)
+  {
+    $fields = array(
+      "karyawan.nip",
+      "divisi.id_divisi",
+      "divisi.nama_divisi",
+      "karyawan.nama_karyawan",
+      "karyawan.jabatan",
+      "karyawan.foto",
+      "karyawan.status",   
+    );
+
+    $this->db->select($fields);
+    $this->db->from('karyawan');
+    $this->db->join('divisi', 'karyawan.id_divisi = divisi.id_divisi');
+    $this->db->where('karyawan.id_divisi', $where);
+    return $this->db->get();
+  }
   }
       
     

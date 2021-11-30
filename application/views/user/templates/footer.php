@@ -3,57 +3,26 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="owl-service-item owl-carousel">
-          
+          <?php 
+               foreach ($karyawan as $kar ) { ?>
             <div class="item">
-              <div class="icon">
-                <img src="<?php echo base_url();?>assets/user/images/service-icon-01.png" alt="">
+              <div class="icon" >
+              <?php
+                  if($kar->foto==''){?>
+                    <label>Belum Ada Gambar</label><br>
+                  <?php }else{ ?>
+                    <img src="<?php echo base_url('assets/img/karyawan/'.$kar->foto)?>" >
+                  <?php }?>
               </div>
               <div class="down-content">
-                <h4>Best Education</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
+                <h4><?=$kar->nama_karyawan?></h4>
+                <p>Divisi : <?=$kar->nama_divisi?></p>
+                <p><?=$kar->status?></p>
+                <br>
+                <a href="<?= base_url() ?>"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1" font-size= "10px"> Atur Janji </button></a>
               </div>
             </div>
-            
-            <div class="item">
-              <div class="icon">
-                <img src="<?php echo base_url();?>assets/user/images/service-icon-02.png" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Best Teachers</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
-              </div>
-            </div>
-            
-            <div class="item">
-              <div class="icon">
-                <img src="<?php echo base_url();?>assets/user/images/service-icon-03.png" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Best Students</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
-              </div>
-            </div>
-            
-            <div class="item">
-              <div class="icon">
-                <img src="<?php echo base_url();?>assets/user/images/service-icon-02.png" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Online Meeting</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
-              </div>
-            </div>
-            
-            <div class="item">
-              <div class="icon">
-                <img src="<?php echo base_url();?>assets/user/images/service-icon-03.png" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Best Networking</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
-              </div>
-            </div>
-            
+            <?php } ?>
           </div>
         </div>
       </div>
@@ -65,7 +34,9 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>DEVISI</h2>
+            <br>
+            <br>
+            <h2>DIVISI</h2>
           </div>
         </div>
         <!--<div class="col-lg-4">
@@ -83,78 +54,24 @@
             </div>
           </div>
         </div>-->
-       
+        <?php 
+               foreach ($divisi as $div ) { ?>
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
+                  <a href=""><img src="<?php echo base_url();?>assets/user/images/kominfo.png" alt="New Lecturer Meeting"></a>
+                                    
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6> <span></span></h6>
                   </div>
-                  <a href="meeting-details.html"><h4> DEVISI PERHUBUNGAN</h4></a>
-                  
+                  <a href="<?php echo base_url('user/C_user/tampil_karyawan/'. $div->id_divisi); ?>"><h4> Divisi <?=$div->nama_divisi?></h4></a>
+                  <input type="hidden" name="id_divisi" id="id_divisi" value="<?= $div->id_divisi;?>">
                 </div>
               </div>
             </div>
-        
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-02.jpg" alt="Online Teaching"></a>
-                </div>
-                <div class="down-content">
-                  
-                  <a href="meeting-details.html"><h4>DEVISI KOMUNIKASI</h4></a>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-02.jpg" alt="Online Teaching"></a>
-                </div>
-                <div class="down-content">
-                
-                  <a href="meeting-details.html"><h4>DEVISI MULTIMEDIA</h4></a>
-                 
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-03.jpg" alt="Higher Education"></a>
-                </div>
-                <div class="down-content">
-                  
-                  <a href="meeting-details.html"><h4>DEVISI PROGREMING</h4></a>
-                  
-                </div>
-              </div>
-            </div>
-            <!--<div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>$48.00</span>
-                  </div>
-                  <a href="meeting-details.html"><img src="<?php echo base_url();?>assets/user/images/meeting-04.jpg" alt="Student Training"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>Nov <span>30</span></h6>
-                  </div>
-                  <a href="meeting-details.html"><h4>Student Training Meetup</h4></a>
-                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                </div>
-              </div>
-            </div>-->
+            <?php } ?>
           </div>
         </div>
       </div>

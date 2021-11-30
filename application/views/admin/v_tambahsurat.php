@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Janji</h1>
+        <h1 class="h3 mb-0 text-gray-800">Tambah Surat</h1>
     </div>
 
     <!-- Content Row -->
@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="id_opd"> ID OPD : </label>
-                <input type="text" class="form-control form-control-user" id="id_opd" name="id_opd" placeholder="Masukkan ID OPD" title="isikan data dengan benar" required>
+                <input type="text" class="form-control" id="id_opd" value="<?= $id_opd; ?> name="id_opd" readonly>
             </div>
             <div class="form-group">
                 <label for="tgl_kirim"> Tanggal Kirim : </label>
@@ -31,19 +31,13 @@
                 <label for="perihal"> Perihal : </label>
                 <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="masukkan perihal surat" title="masukkan perihal surat dengan benar" required>
             </div>
-
             <div class="form-group">
-                <label for="status">Status</label>
-                <select class="form-control" name="status" id="status" required>
-                    <option>Pilih Status :</option>
-                    <option>Belum Terkonfirmasi</option>
-                    <option>Menunggu Konfirmasi</option>
-                    <option>Terima</option>
-                    <option>Tolak</option>
-                </select>
+                <label for="perihal"> File : </label>
+                <input type="text" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
-            <div class="form-group text-center">
+
+            <div class="form-group text-center">`
                 <button class="btn btn-primary px-2 mr-1" type="submit">Simpan</button>
                 <button class="btn btn-secondary" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
             </div>

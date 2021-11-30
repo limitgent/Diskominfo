@@ -327,11 +327,13 @@ class Janji extends CI_Controller {
 
         public function set_status(){
 
-            //$id_divisi = $this->input->get('id_divisi');
-            //$karyawan = $this->m_data_kehadiran->tampil_karyawan($id_divisi,'karyawan');
-            //$data = array(
-                //'karyawan' => $karyawan
-             $data['karyawan'] = $this->m_data_kehadiran->tampil_allkaryawan()->result();
+            $where = $this->input->get('id_divisi');
+            // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
+            $resultKaryawan = $this->m_data_kehadiran->tampil_karyawan_where($where)->result();
+            // kode ini memuat vie edit dan membawa data hasil query diatas
+            $data = array(
+                'karyawan' => $resultKaryawan
+            );
     
                 $this->load->view('admin/templates/header');
                 $this->load->view('admin/templates/sidebar');
@@ -339,9 +341,10 @@ class Janji extends CI_Controller {
                 $this->load->view('admin/templates/footer');
         }
 
-        public function updatestatus($nip){
+        public function updatestatus($id_divisi){
             // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
                
+                $id_divisi= $this->input->post('id_divisi');
                 $nip= $this->input->post('nip');
                 $status= $this->input->post('status');
             
@@ -359,7 +362,7 @@ class Janji extends CI_Controller {
                 // kode untuk melakukan query update dengan menjalankan method update_data() 
                 $this->m_data_kehadiran->update_status_karyawan($where,$data,'karyawan');
                 // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
-                redirect('admin/Janji/set_status/'.$this->uri->segment(3));
+                redirect('admin/Janji/set_status/'."?id_divisi=".$id_divisi);
             }
     
 

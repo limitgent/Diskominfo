@@ -43,13 +43,13 @@ class C_surat extends CI_Controller {
 				// Menghitung panjang id yang sudah menjadi integer
 				if (strlen($idSuratInt) == 1) {
 					// jika panjang id hanya 1 angka
-					$id_surat = "SU001" . ($idSuratInt + 1);
+					$id_surat = "SU00" . ($idSuratInt + 1);
 				} else if (strlen($idSuratInt) == 2) {
 					// jika panjang id hanya 2 angka
-					$id_surat = "SU01" . ($idSuratInt + 1);
+					$id_surat = "SU0" . ($idSuratInt + 1);
 				} else if (strlen($idSuratInt) == 3) {
 					// jika panjang id hanya 3 angka
-					$id_surat = "SU1" . ($idSuratInt + 1);
+					$id_surat = "SU" . ($idSuratInt + 1);
 				}
 			}
 		} else {
@@ -95,7 +95,9 @@ class C_surat extends CI_Controller {
 
               function hapus_surat($id){
                 // baaris kode ini berisi fungsi untuk menyimpan id user kedalam array $where pada index array bernama 'id'
-              $where = array('id_surat' => $id);
+              $where = array(
+                  'id_surat' => $id
+                );
               // kode di bawah ini untuk menjalankan query hapus yang berasal dari method hapus_data() pada model m_data
                   $this->m_data_surat->hapus_surat($where,'surat');
               // kode yang berfungsi mengarakan pengguna ke link base_url()crud/index/
@@ -106,25 +108,15 @@ class C_surat extends CI_Controller {
                 // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
                 $where = array('id_surat' => $id);
                 // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
-                $data['surat'] = $this->m_data_surat->edit_surat($where,'surat')->result();
+                $surat['surat'] = $this->m_data_surat->edit_surat($where,'surat')->result();
                 // kode ini memuat vie edit dan membawa data hasil query diatas
                 $this->load->view('admin/templates/header');
                 $this->load->view('admin/templates/sidebar');
-                $this->load->view('admin/v_editsurat',$data);
+                $this->load->view('admin/v_edit_surat',$surat);
                 $this->load->view('admin/templates/footer');
                
             }
-            public function detail($id)
-            {
-                $where = array('id_janji');
-                $detail = $this->m_data_surat->detail_data($id);
-                $data['detail'] = $this->m_data_surat->detail_data($id);
-                $this->load->view('admin/templates/header');
-                $this->load->view('admin/templates/sidebar');
-                $this->load->view('admin/v_surat', $data);
-                $this->load->view('admin/templates/footer');
-            }
-
+            
             // baris kode function update adalah method yang diajalankan ketika tombol submit pada form v_edit ditekan, method ini berfungsi untuk merekam data, memperbarui baris database yang dimaksud, lalu mengarahkan pengguna ke controller crud method index
         function update_data_surat(){
             // keenam baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
