@@ -66,7 +66,7 @@ https://templatemo.com/tm-569-edu-meeting
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li class="scroll-to-section"><a href="#devisi">DEVISI</a></li>
+                          <li class="scroll-to-section"><a href="#devisi">Devisi</a></li>
                           <li class="scroll-to-section"><a href="#apply">Panduan</a></li>
                         <!-- <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
