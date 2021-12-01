@@ -7,7 +7,20 @@ class m_data_surat extends CI_Model{
     }
 
     function tambah_surat($surat,$table){
-      $this->db->insert($table,$data);
+      $this->db->insert($table,$surat);
+      }
+    function tambah_surat_where($where, $table)
+      {
+        $fields = array(
+          "opd.nama_opd",
+           
+        );
+    
+        $this->db->select($fields);
+        $this->db->from($table);
+        $this->db->join('opd', 'opd.nama_opd = surat.id_surat');
+        $this->db->where($where);
+        return $this->db->get();
       }
 
     function hapus_surat($where,$table){
