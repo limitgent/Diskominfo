@@ -57,9 +57,6 @@ class C_surat extends CI_Controller {
 			$id_surat = "SU001";
         }
         
-        $data = array( 
-            'id_surat' => $id_surat
-        ); 
         // Membuat fungsi untuk melakukan penambahan id produk secara otomatis
 		// Mendapatkan jumlah produk yang ada di database
 		$jumlahopd = $this->m_data_surat->tampil_surat()->num_rows();
@@ -92,7 +89,8 @@ class C_surat extends CI_Controller {
         }
         
         $data = array( 
-            'id_opd' => $id_opd
+            'id_opd' => $id_opd, 
+            'id_surat' => $id_surat
         );
         $this->load->view('admin/templates/header');
 		$this->load->view('admin/templates/sidebar');
