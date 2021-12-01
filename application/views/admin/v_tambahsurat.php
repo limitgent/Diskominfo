@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="perihal"> File : </label>
-                <input type="text" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
+                <input type="file" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
 
