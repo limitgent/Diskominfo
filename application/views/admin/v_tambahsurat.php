@@ -9,7 +9,7 @@
         <!-- Content Row -->
     </div>
     <div class="col-lg-10">
-        <form action="<?php echo base_url() . 'admin/C_surat/aksi_tambah_surat'; ?>" method="post">
+        <form action="<?php echo base_url() . 'admin/C_surat/aksi_tambah_surat'; ?>" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
                 <label for="id_surat"> ID Surat : </label>
