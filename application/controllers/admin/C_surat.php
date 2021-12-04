@@ -105,10 +105,10 @@ class C_surat extends CI_Controller {
         $tgl_kirim = $this->input->post('tgl_kirim');
         $tgl_terima = $this->input->post('tgl_terima');
         $perihal = $this->input->post('perihal');
-        $file = $_FILES->input->post['file'];
+        $file = $_FILES['file'];
 
         if ($file=''){}else{
-            $config['upload_path']      = './assets/admin/img';
+            $config['upload_path']      = './assets/admin/surat';
             $config['allowed_types']    = '.doc|.docx|.docm|.dot|.dotx|.dotm|.ppt|.xls|.xlsx';
 
             $this->load->library('upload',$config);
@@ -125,7 +125,7 @@ class C_surat extends CI_Controller {
                       'tgl_kirim' => $tgl_kirim,
                       'tgl_terima' => $tgl_terima,
                       'perihal' => $perihal,
-                      'file' => $_FILES,
+                      'file' => $_FILES
                       
                 );
                 // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
