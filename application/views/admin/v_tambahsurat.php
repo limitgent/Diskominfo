@@ -9,7 +9,7 @@
         <!-- Content Row -->
     </div>
     <div class="col-lg-10">
-        <form action="<?php echo base_url() . 'admin/C_surat/aksi_tambah_surat'; ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url() . 'admin/C_surat/aksi_tambah_surat'; ?>" method="post">
 
         <div class="form-group">
                 <label for="id_surat"> ID Surat : </label>
@@ -32,7 +32,7 @@
                 <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="masukkan perihal surat" title="masukkan perihal surat dengan benar" required>
             </div>
             <div class="form-group">
-                <label for="perihal"> File : </label>
+                <label for="file"> File : </label>
                 <input type="file" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
