@@ -32,6 +32,10 @@ class m_data_surat extends CI_Model{
     function edit_surat($where,$table){		
         return $this->db->get_where($table,$where);
       }
+
+    function tampil_isi_surat($where,$table){		
+        return $this->db->get_where($table,$where);
+      }
     function tampil_surat_akhir()
     {
         $this->db->order_by('id_surat', 'DESC');
