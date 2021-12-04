@@ -157,6 +157,19 @@ class C_surat extends CI_Controller {
                 $this->load->view('admin/templates/footer');
                
             }
+
+            public function tampil_isi_surat($id){
+                // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
+                $where = array('id_surat' => $id);
+                // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
+                $surat['surat'] = $this->m_data_surat->tampil_isi_surat($where,'surat')->result();
+                // kode ini memuat vie edit dan membawa data hasil query diatas
+                $this->load->view('admin/templates/header');
+                $this->load->view('admin/templates/sidebar');
+                $this->load->view('admin/v_tampil_isi_surat',$surat);
+                $this->load->view('admin/templates/footer');
+               
+            }
             
             // baris kode function update adalah method yang diajalankan ketika tombol submit pada form v_edit ditekan, method ini berfungsi untuk merekam data, memperbarui baris database yang dimaksud, lalu mengarahkan pengguna ke controller crud method index
         function update_data_surat(){
