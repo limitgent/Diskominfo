@@ -105,14 +105,14 @@ class C_surat extends CI_Controller {
         $tgl_kirim = $this->input->post('tgl_kirim');
         $tgl_terima = $this->input->post('tgl_terima');
         $perihal = $this->input->post('perihal');
-        $file = $_FILES['file'];
+        $file = $_FILES['file_nama']['name'];
 
         if ($file=''){}else{
             $config['upload_path']      = './assets/admin/img';
             $config['allowed_types']    = '.doc|.docx|.docm|.dot|.dotx|.dotm|.ppt|.xls|.xlsx';
 
             $this->load->library('upload',$config);
-            if(!$this->upload->do_upload('file')) {
+            if(!$this->upload->do_upload('file_name')) {
             }else{
                 $file=$this->upload->data('file_name');
             }
