@@ -78,7 +78,7 @@ https://templatemo.com/tm-569-edu-meeting
                           
                           <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                           <div class="main-button-red">
-                            <div class="scroll-to-section"><a href="">login</a></div>
+                            <a class="btn btn-primary" href="<?= base_url('surat/C_login');?>">Login</a>
                           </div>
                           
                       </ul>        
