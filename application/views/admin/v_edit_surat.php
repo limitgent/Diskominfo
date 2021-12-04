@@ -37,7 +37,18 @@
                     </div>
                     <div class="form-group">
                         <label for="file"> File : </label>
-                        <input type="text" name="file" class="form-control form-control-user" id="file" placeholder="Masukkan Username Baru" title="Isikan data dengan benar" value="<?php echo $su->file ?>" required>
+                        <fieldset class="form-group">
+                        <?php
+                        if($su->file==''){?>
+                            <label>Tidak Ada File</label><br>
+                        <?php }else{ ?>
+                        <file src="<?php echo base_url('assets/admin/surat/'.$su->file)?>" width="90" height="110"><br>
+                        <?php }?>
+                            <fieldset class="form-group">
+                                <div>
+                                    <?php echo $su->file; ?></div>
+                                       <input type="file" class="form-control" id="file" name="file" value="<?= $su->file;?>">
+                            </fieldset>
                     </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Simpan</button>

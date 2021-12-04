@@ -2,7 +2,8 @@
 //  berfungsi untuk melayani segala query CRUD database
 class m_data_surat extends CI_Model{
   // function untuk mengambil keseluruhan baris data dari tabel user
-	public function tampil_surat(){
+	
+  public function tampil_surat(){
 		return $this->db->get('surat');
     }
 
@@ -29,6 +30,10 @@ class m_data_surat extends CI_Model{
       }
 
     function edit_surat($where,$table){		
+        return $this->db->get_where($table,$where);
+      }
+
+    function tampil_isi_surat($where,$table){		
         return $this->db->get_where($table,$where);
       }
     function tampil_surat_akhir()

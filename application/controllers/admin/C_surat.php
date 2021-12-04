@@ -108,7 +108,7 @@ class C_surat extends CI_Controller {
         $file = $_FILES['file_nama']['name'];
 
         if ($file=''){}else{
-            $config['upload_path']      = './assets/admin/img';
+            $config['upload_path']      = './assets/admin/surat';
             $config['allowed_types']    = '.doc|.docx|.docm|.dot|.dotx|.dotm|.ppt|.xls|.xlsx';
 
             $this->load->library('upload',$config);
@@ -125,7 +125,7 @@ class C_surat extends CI_Controller {
                       'tgl_kirim' => $tgl_kirim,
                       'tgl_terima' => $tgl_terima,
                       'perihal' => $perihal,
-                      'file' => $file
+                      'file' => $_FILES
                       
                 );
                 // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
@@ -157,6 +157,19 @@ class C_surat extends CI_Controller {
                 $this->load->view('admin/templates/footer');
                
             }
+
+            public function tampil_isi_surat($id){
+                // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
+                $where = array('id_surat' => $id);
+                // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
+                $surat['surat'] = $this->m_data_surat->tampil_isi_surat($where,'surat')->result();
+                // kode ini memuat vie edit dan membawa data hasil query diatas
+                $this->load->view('admin/templates/header');
+                $this->load->view('admin/templates/sidebar');
+                $this->load->view('admin/v_tampil_isi_surat',$surat);
+                $this->load->view('admin/templates/footer');
+               
+            }
             
             // baris kode function update adalah method yang diajalankan ketika tombol submit pada form v_edit ditekan, method ini berfungsi untuk merekam data, memperbarui baris database yang dimaksud, lalu mengarahkan pengguna ke controller crud method index
         function update_data_surat(){
@@ -166,7 +179,7 @@ class C_surat extends CI_Controller {
             $tgl_kirim = $this->input->post('tgl_kirim');
             $tgl_terima = $this->input->post('tgl_terima');
             $perihal = $this->input->post('perihal');
-            $file = $this->input->post('file');
+            $_FILES = $this->input->post('file');
                     // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
                       $data = array(
                           'id_surat' => $id_surat,

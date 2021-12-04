@@ -25,6 +25,7 @@
         </thead>
         <tbody>
         <?php 
+      
         foreach ($surat as $su ) { ?>
           <tr>
             <td class="text-center"><?= $su->id_surat ?></td>
@@ -32,12 +33,13 @@
             <td class="text-center"><?= $su->tgl_kirim ?></td>
             <td class="text-center"><?= $su->tgl_terima ?></td>
             <td class="text-center"><?= $su->perihal ?></td>
-            <td class="text-center"><?= $su->file ?></td>
-            
+            <td class="text-center"><?= $su->file ?></td>  
+          
         </td>
         <td class="text-center">
               <a class="btn btn-primary" href="<?php echo base_url('admin/C_surat/edit_surat/'. $su->id_surat); ?>"><i class="fas fa-pencil-alt"></i></a>
               <a class="btn btn-danger" href="<?php echo base_url('admin/C_surat/hapus_surat/'. $su->id_surat); ?>"><i class="fas fa-trash"></i></a>
+              <a class="btn btn-warning " href="<?php echo base_url('admin/C_surat/tampil_isi_surat/'. $su->id_surat); ?>"><i class="fas fa-info-circle"></i></a>
 
             </td>
           </tr>
