@@ -32,7 +32,7 @@
                 <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="masukkan perihal surat" title="masukkan perihal surat dengan benar" required>
             </div>
             <div class="form-group">
-                <label for="file"> File : </label>
+                <label for="varchar"> File : </label>
                 <input type="file" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
