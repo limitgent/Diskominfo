@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class C_surat extends CI_Controller {
 
+    
+
     function __construct(){
         parent::__construct();	
             // ini adalah function untuk memuat model bernama m_data
@@ -105,16 +107,19 @@ class C_surat extends CI_Controller {
         $tgl_kirim = $this->input->post('tgl_kirim');
         $tgl_terima = $this->input->post('tgl_terima');
         $perihal = $this->input->post('perihal');
-        $file = $_FILES['file_nama']['name'];
+        $file = $_FILES['file'];
 
         if ($file=''){}else{
-            $config['upload_path']      = './assets/admin/surat';
+            $config['upload_path']      = './uploads/';
             $config['allowed_types']    = '.doc|.docx|.docm|.dot|.dotx|.dotm|.ppt|.xls|.xlsx';
+            $config['max_size']         = 0;
 
             $this->load->library('upload',$config);
-            if(!$this->upload->do_upload('file_name')) {
-            }else{
-                $file=$this->upload->data('file_name');
+            if(!$this->upload->do_upload('file')) {
+            }else
+            {
+                $file = $this->upload->data('file');
+                //print_r($upload_data);
             }
         }
         
