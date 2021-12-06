@@ -14,7 +14,32 @@
 <div class="row">
   <div class="col-sm-12">
     <table class="table table-bordered">
-      <tr>
+    <thead>
+          <tr>
+          <th class="text-center">ID Surat</th>
+          <th class="text-center">ID OPD</th>
+          <th class="text-center">Tanggal Kirim</th>
+          <th class="text-center">Tanggal Terima</th>
+          <th class="text-center">Perihal</th>
+          <th class="text-center">File</th>
+          <!-- <th class="text-center">Aksi</th> -->
+          </tr>
+        </thead>
+        <tbody>
+        <?php 
+      
+        foreach ($surat as $su ) { ?>
+          <tr>
+            <td class="text-center"><?= $su->id_surat ?></td>
+            <td class="text-center"><?= $su->id_opd ?></td>
+            <td class="text-center"><?= $su->tgl_kirim ?></td>
+            <td class="text-center"><?= $su->tgl_terima ?></td>
+            <td class="text-center"><?= $su->perihal ?></td>
+            <td class="text-center"><?= $su->file ?></td>  
+          
+        </td>
+        <?php } ?>
+      <!--<tr>
         <th width="100px">ID Surat</th>
         <th width="30px">:</th>
         <td><?= $surat['id_surat'] ?></td>
@@ -28,9 +53,10 @@
         <th width="100px">Perihal</th>
         <th width="30px">:</th>
         <td><?= $surat['perihal'] ?></td>
-      </tr>
+      </tr> -->
 </table>
 </div>
 <div class="col-sm-12"></div>
-  <iframe src="<?= base_url('surat/'.$surat['surat'])?>" style="border:2px solid blue;" height="600px" width="100%" title="iframe example"></iframe>
+  <!-- <iframe src="file" width="100%" title="Iframe Example"></iframe> -->
+  <iframe src="<?php echo base_url('uploads/'.$su->file)?>" style="border:2px solid blue;" height="600px" width="100%" title="iframe example"></iframe>
 </div>
