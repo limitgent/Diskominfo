@@ -163,6 +163,18 @@ class C_surat extends CI_Controller {
                
             }
 
+            public function tampil_opd(){
+                $nama_opd=$this->m_data->tampil_data()->result();
+
+                $data = array(
+                    'nama_opd' => $nama_opd
+                );
+                $this->load->view('admin/templates/header');
+                $this->load->view('admin/templates/sidebar');
+                $this->load->view('admin/v_tampil_opd',$data);
+                $this->load->view('admin/templates/footer');
+            }
+
             public function tampil_isi_surat($id){
                 // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
                 $where = array('id_surat' => $id);
