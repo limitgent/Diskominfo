@@ -20,4 +20,5 @@ class C_dashboard extends CI_Controller {
 		$this->load->view('surat/templates/footer');
 		
 	}
+	
 }
