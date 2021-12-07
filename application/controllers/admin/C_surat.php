@@ -9,7 +9,7 @@ class C_surat extends CI_Controller {
         parent::__construct();	
             // ini adalah function untuk memuat model bernama m_data
         $this->load->model('m_data_surat');
-        $this->load->helper('url');
+        $this->load->helper('url','form','file');
 
             if($this->session->userdata('status') != "login") {
                 redirect(base_url("admin/C_login"));
@@ -110,8 +110,8 @@ class C_surat extends CI_Controller {
         $file = $_FILES['file'];
 
         if ($file=''){}else{
-            $config['upload_path']      = './uploads/';
-            $config['allowed_types']    = '.doc|.docx|.docm|.dot|.dotx|.dotm|.ppt|.xls|.xlsx';
+            $config['upload_path']      = '.../assets/admin/upload/';
+            $config['allowed_types']    = 'pdf|doc|docx|docm|dot|dotx|dotm|ppt|xls|xlsx';
             $config['max_size']         = 0;
 
             $this->load->library('upload',$config);
@@ -130,7 +130,7 @@ class C_surat extends CI_Controller {
                       'tgl_kirim' => $tgl_kirim,
                       'tgl_terima' => $tgl_terima,
                       'perihal' => $perihal,
-                      'file' => $_FILES
+                      'file' => $file
                       
                 );
                 // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
@@ -196,7 +196,7 @@ class C_surat extends CI_Controller {
             $tgl_kirim = $this->input->post('tgl_kirim');
             $tgl_terima = $this->input->post('tgl_terima');
             $perihal = $this->input->post('perihal');
-            $_FILES = $this->input->post('file');
+            $file = $this->input->post('file');
                     // array yang berguna untuk mennjadikanva variabel diatas menjadi 1 variabel yang nantinya akan di sertakan dalam query insert
                       $data = array(
                           'id_surat' => $id_surat,
@@ -204,7 +204,7 @@ class C_surat extends CI_Controller {
                           'tgl_kirim' => $tgl_kirim,
                           'tgl_terima' => $tgl_terima,
                           'perihal' => $perihal,
-                          'file' => $_FILES,
+                          'file' => $file,
                 );
             
                 // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
