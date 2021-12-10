@@ -49,9 +49,9 @@ class janji_temu extends CI_Controller
             $id_janji = "JT001";
         }
 
-
         $data = array(
             'id_janji' => $id_janji
+
         );
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/sidebar');
@@ -64,24 +64,24 @@ class janji_temu extends CI_Controller
 
         $id_janji = $this->input->post('id_janji');
         $nip = $this->input->post('nip');
-        $id_opd = $this->input->post('id_opd');
         $hari_tgl = $this->input->post('hari_tgl');
         $atas_nama = $this->input->post('atas_nama');
         $perihal = $this->input->post('perihal');
         $status = $this->input->post('status');
         $no_telpon_user = $this->input->post('no_telpon_user');
         $jam = $this->input->post('jam');
+        $instansi = $this->input->post('instansi');
 
         $data = array(
             'id_janji' => $id_janji,
             'nip' => $nip,
-            'id_opd' => $id_opd,
             'hari_tgl' => $hari_tgl,
             'atas_nama' => $atas_nama,
             'perihal' => $perihal,
             'status' => $status,
             'no_telpon_user' => $no_telpon_user,
             'jam' => $jam,
+            'instansi' => $instansi,
 
         );
 
@@ -130,26 +130,26 @@ class janji_temu extends CI_Controller
 
         $id_janji = $this->input->post('id_janji');
         $nip = $this->input->post('nip');
-        $id_opd = $this->input->post('id_opd');
         $hari_tgl = $this->input->post('hari_tgl');
         $atas_nama = $this->input->post('atas_nama');
         $perihal = $this->input->post('perihal');
         $status = $this->input->post('status');
         $no_telpon_user = $this->input->post('no_telpon_user');
         $jam = $this->input->post('jam');
+        $instansi = $this->input->post('instansi');
 
 
         // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
         $data = array(
             'id_janji' => $id_janji,
             'nip' => $nip,
-            'id_opd' => $id_opd,
             'hari_tgl' => $hari_tgl,
             'atas_nama' => $atas_nama,
             'perihal' => $perihal,
             'status' => $status,
             'no_telpon_user' => $no_telpon_user,
             'jam' => $jam,
+            'instansi' => $instansi,
 
         );
 

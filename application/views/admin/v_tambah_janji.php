@@ -8,7 +8,9 @@
     <div class="row">
         <!-- Content Row -->
     </div>
+
     <div class="col-lg-10">
+
         <form action="<?php echo base_url() . 'admin/janji_temu/aksitambah_janji'; ?>" method="post">
 
             <div class="form-group">

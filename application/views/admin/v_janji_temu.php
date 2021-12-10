@@ -1,9 +1,5 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Janji Temu <a class="btn btn-primary" href="<?= base_url() . 'admin/janji_temu/tambah_janji/'; ?>">
-            <i class="fas fa-user-plus" disabled></i></a></h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -13,10 +9,11 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
 
-                            <th class="text-center">Hari/Tgl</th>
+                    <thead>
+                        <tr class="font-weight-bolder">
+
+                            <th class=" text-center">Hari/Tgl</th>
                             <th class="text-center">Jam</th>
                             <th class="text-center">Atas Nama</th>
                             <th class="text-center">Perihal</th>
@@ -34,7 +31,9 @@
                                 <td class="text-center"><?= $atj->atas_nama ?></td>
                                 <td class="text-center"><?= $atj->perihal ?></td>
                                 <td class="text-center">
-                                    <?php if ($atj->status == "Belum Terkonfirmasi") { ?>
+                                    <?php if ($atj->status == "") { ?>
+                                        <span class="badge badge-pill px-4 badge-secondary">Belum Terkonfirmasi</span>
+                                    <?php } else if ($atj->status == "Belum Terkonfirmasi") { ?>
                                         <span class="badge badge-pill px-4 badge-secondary">Belum Terkonfirmasi</span>
                                     <?php } else if ($atj->status == "Menunggu Konfirmasi") { ?>
                                         <span class="badge badge-pill px-4 badge-warning">Menunggu Konfirmasi</span>
