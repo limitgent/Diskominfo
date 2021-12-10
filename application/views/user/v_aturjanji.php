@@ -54,14 +54,14 @@
                 <div class="group-input col-md-4">
                     <div class="input-group mb-2">
                         <span class="input-group-text">Perihal :</span>
-                        <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="Masukan Perihal Janji" title="Isikan data dengan benar" required>
+                        <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="Masukkan Perihal Janji" title="Isikan data dengan benar" required>
                     </div>
                 </div>
 
                 <div class="group-input col-md-4">
                     <div class="input-group mb-2">
                         <span class="input-group-text">No. Telpon :</span>
-                        <input type="text" class="form-control form-control-user" id="no_telpon_user" name="no_telpon_user" placeholder="Masukan No. Telpon Anda" title="Isikan data dengan benar" required>
+                        <input type="text" class="form-control form-control-user" id="no_telpon_user" name="no_telpon_user" placeholder="Masukkan No. Telpon Anda" title="Isikan data dengan benar" required>
                     </div>
                 </div>
                 <div class="group-input col-md-4">
