@@ -9,7 +9,7 @@
         <!-- Content Row -->
     </div>
     <div class="col-lg-10">
-    <?php echo form_open_multipart('user/C_kirim_surat/kirim_surat') ;?>
+    <?php echo form_open_multipart('surat/C_kirim_surat/tampil_kirim_surat') ;?>
 
         <div class="form-group">
                 <label for="no_surat"> Nomor Surat : </label>
