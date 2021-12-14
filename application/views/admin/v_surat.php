@@ -33,7 +33,7 @@
             <td class="text-center"><?= $su->tgl_kirim ?></td>
             <td class="text-center"><?= $su->tgl_terima ?></td>
             <td class="text-center"><?= $su->perihal ?></td>
-            <td class="text-center"><?= $su->file ?></td>  
+            <td class="text-center"><a href="<?= base_url('assets/admin/upload/' . $su->file) ?>" target="_blank"><?= $su->file ?></a></td>  
           
         </td>
         <td class="text-center">
