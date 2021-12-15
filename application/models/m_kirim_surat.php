@@ -22,16 +22,19 @@ class m_kirim_surat extends CI_Model{
     function edit_surat($where,$table){		
         return $this->db->get_where($table,$where);
     }
-    function edit($where,$table){		
+    function tampil_isi_kirim_surat($where,$table){		
         return $this->db->get_where($table,$where);
-    }
-    function tampil_surat_akhir()
-    {
-        $this->db->order_by('id_surat', 'DESC');
-        return $this->db->get('surat', 1);
-    }
+      }
+    // //function tampil_surat_akhir()
+    // {
+    //     $this->db->order_by('id_surat', 'DESC');
+    //     return $this->db->get('surat', 1);
+    // } 
     function update($where,$surat,$table){
         $this->db->where($where);
         $this->db->update($table,$surat);
       }	
+      function edit($where,$table){		
+        return $this->db->get_where($table,$where);
+      }
 }
