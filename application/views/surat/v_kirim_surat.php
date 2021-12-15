@@ -29,11 +29,11 @@
             </div>
         <div class="form-group">
                 <label for="file"> File : </label>
-                <input type="file" class="form-control form-control-user" id="file" name="file" placeholder="masukkan file surat" title="masukkan soft file surat" required>
+                <input type="file" class="form-control form-control-user" id="dokumen" name="dokumen" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
 
             <div class="form-group text-center">`
-                <button class="btn btn-primary px-2 mr-1" type="submit">Kirim</button>
+                <button class="btn btn-primary px-2 mr-1" type="submit" value="upload">Kirim</button>
                 <button class="btn btn-secondary" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
             </div>
             <?php echo form_close();?>
