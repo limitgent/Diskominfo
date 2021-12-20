@@ -18,7 +18,47 @@ class C_kirim_surat extends CI_Controller {
         $this->load->view('surat/v_kirim_surat', $data);
         $this->load->view('surat/templates/footer');
     }
-    public function aksi_kirim_surat(){
+    public function tambah_surat(){
+        // Membuat fungsi untuk melakukan penambahan id produk secara otomatis
+		// Mendapatkan jumlah produk yang ada di database
+		$jumlahSurat = $this->m_kirim_surat->tampil_kirim_surat()->num_rows();
+		// Jika jumlah produk lebih dari 0
+		if ($jumlahSurat > 0) {
+			// Mengambil id produk sebelumnya
+			$lastId = $this->m_kirim_surat->tampil_surat_akhir()->result();
+			// Melakukan perulangan untuk mengambil data
+			foreach ($lastId as $row) {
+				// Melakukan pemisahan huruf dengan angka pada id produk
+				$rawIdSurat = substr($row->id_surat, 3);
+				// Melakukan konversi nilai pemisahan huruf dengan angka pada id order menjadi integer
+				$idSuratInt = intval($rawIdSurat);
+
+				// Menghitung panjang id yang sudah menjadi integer
+				if (strlen($idSuratInt) == 1) {
+					// jika panjang id hanya 1 angka
+					$id_surat = "SU00" . ($idSuratInt + 1);
+				} else if (strlen($idSuratInt) == 2) {
+					// jika panjang id hanya 2 angka
+					$id_surat = "SU0" . ($idSuratInt + 1);
+				} else if (strlen($idSuratInt) == 3) {
+					// jika panjang id hanya 3 angka
+					$id_surat = "SU" . ($idSuratInt + 1);
+				}
+			}
+		} else {
+			// Jika jumlah paket soal kurang dari sama dengan 0
+			$id_surat = "SU001";
+        }
+        $data = array( 
+            'id_surat' => $id_surat
+        );
+        $this->load->view('surat/templates/header');
+		$this->load->view('surat/templates/sidebar');
+		$this->load->view('surat/v_tambah_surat', $data);
+		$this->load->view('surat/templates/footer');
+
+    }
+    public function aksi_tambah_surat(){
         $nomor_surat = $this->input->post('no_surat');
         $tgl_kirim = $this->input->post('tgl_kirim');
         $perihal = $this->input->post('perihal');
@@ -45,7 +85,7 @@ class C_kirim_surat extends CI_Controller {
             'file' => $dokumen
             
       );
-      $this->m_kirim_surat->kirim_surat($data,'kirim_surat');
+      $this->m_kirim_surat->tambah_surat($data,'surat');
       redirect('surat/C_kirim_surat/tampil_kirim_surat');
     }
     function hapus_surat($id){
@@ -59,29 +99,29 @@ class C_kirim_surat extends CI_Controller {
       redirect('surat/C_kirim_surat/tampil_kirim_surat');
       }
 
-      public function edit_kirim($id){
+      public function edit_surat($id){
         // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
         $where = array('id_surat' => $id);
         // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
-        $surat['surat'] = $this->m_kirim_surat->edit_kirim($where,'surat')->result();
+        $surat['surat'] = $this->m_kirim_surat->edit_surat($where,'surat')->result();
         // kode ini memuat vie edit dan membawa data hasil query diatas
-        $this->load->view('admin/templates/header');
-        $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/v_edit_kirim',$surat);
-        $this->load->view('admin/templates/footer');
+        $this->load->view('surat/templates/header');
+        $this->load->view('surat/templates/sidebar');
+        $this->load->view('surat/v_edit_surat',$surat);
+        $this->load->view('surat/templates/footer');
        
     }
 
-    public function tampil_isi_kirim_surat($id){
+    public function tampil_isi_surat($id){
         // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
         $where = array('id_surat' => $id);
         // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
         $surat['surat'] = $this->m_kirim_surat->tampil_isi_kirim_surat($where,'surat')->result();
         // kode ini memuat vie edit dan membawa data hasil query diatas
-        $this->load->view('admin/templates/header');
-        $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/v_tampil_isi_kirim_surat',$surat);
-        $this->load->view('admin/templates/footer');
+        $this->load->view('surat/templates/header');
+        $this->load->view('surat/templates/sidebar');
+        $this->load->view('surat/v_tampil_isi_surat',$surat);
+        $this->load->view('surat/templates/footer');
        
     }
 
@@ -98,7 +138,7 @@ class C_kirim_surat extends CI_Controller {
                     'tgl_kirim' => $tgl_kirim,
                     'perihal' => $perihal,
                     'departemen' => $departemen,
-                    'file' => $_FILES
+                    'file' => $file,
             );
         
             // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
