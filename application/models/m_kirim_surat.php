@@ -3,10 +3,14 @@ class m_kirim_surat extends CI_Model{
     public function tampil_kirim_surat(){
         return $this->db->get('surat');
     }
-    function kirim_surat ($surat,$table){
+    function tambah_surat($surat,$table){
         $this->db->insert($table,$surat);
+    }
+    function tambah_surat_where($where, $table)
+      {
         $fields = array(
-            "departemen.departemen",
+          "departemen.departemen",
+           
         );
         $this->db->select($fields);
         $this->db->from($table);
@@ -22,19 +26,23 @@ class m_kirim_surat extends CI_Model{
     function edit_surat($where,$table){		
         return $this->db->get_where($table,$where);
     }
-    function tampil_isi_kirim_surat($where,$table){		
+    function tampil_isi_surat($where,$table){		
         return $this->db->get_where($table,$where);
       }
-    // //function tampil_surat_akhir()
-    // {
-    //     $this->db->order_by('id_surat', 'DESC');
-    //     return $this->db->get('surat', 1);
-    // } 
-    function update($where,$surat,$table){
+    function tampil_surat_akhir()
+    {
+        $this->db->order_by('id_surat', 'DESC');
+        return $this->db->get('surat', 1);
+    } 
+    function update_data_surat($where,$surat,$table){
         $this->db->where($where);
         $this->db->update($table,$surat);
       }	
       function edit($where,$table){		
         return $this->db->get_where($table,$where);
+      }
+      function update($where,$surat,$table){
+        $this->db->where($where);
+        $this->db->update($table,$surat);
       }
 }
