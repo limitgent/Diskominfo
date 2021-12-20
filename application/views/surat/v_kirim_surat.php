@@ -1,60 +1,67 @@
+<!-- Begin Page Content -->
 <div class="container-fluid">
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Kirim Surat</h1>
-    </div>
 
-    <!-- Content Row -->
-    <div class="row">
-        <!-- Content Row -->
-    </div>
-    <div class="col-lg-10">
-    <?php echo form_open_multipart('surat/C_kirim_surat/tampil_kirim_surat') ;?>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800"> Kirim Surat <a class="btn btn-primary" href="<?= base_url() . 'surat/C_kirim_surat/tambah_surat/'; ?>">
+            <i class="fas fa-user-plus" disabled></i></a></h1>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Data Surat</h6>
+  </div>
+  <div class="card-body">
+  <div class="table-responsive">
+  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+          <th class="text-center">Nomor Surat</th>
+          <th class="text-center">Tanggal Kirim</th>
+          <th class="text-center">Perihal</th>
+          <th class="text-center">File</th>
+          <th class="text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php 
+      
+        foreach ($surat as $su ) { ?>
+          <tr>
+            <td class="text-center"><?= $su->id_surat ?></td>
+            <td class="text-center"><?= $su->tgl_kirim ?></td>
+            <td class="text-center"><?= $su->perihal ?></td>
+            <td class="text-center"><a href="<?= base_url('assets/user/arsip/' . $su->file) ?>" target="_blank"><?= $su->file ?></a></td>  
+          
+        </td>
+        <td class="text-center">
+              <a class="btn btn-primary" href="<?php echo base_url('surat/C_kirim_surat/edit_surat/'. $su->id_surat); ?>"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn btn-danger" href="<?php echo base_url('surat/C_kirim_surat/hapus_surat/'. $su->id_surat); ?>"><i class="fas fa-trash"></i></a>
+              <!--<a class="btn btn-warning " href="<?php echo base_url('surat/C_kirim_surat/tampil_isi_surat/'. $su->id_surat); ?>"><i class="fas fa-info-circle"></i></a> -->
 
-        <div class="form-group">
-                <label for="no_surat"> Nomor Surat : </label>
-                <input type="text" class="form-control form-control-user" id="no_surat" name="no_surat" placeholder="masukkan nomor surat" title="masukkan nomor surat dengan benar" required>
-            </div>
-        <div class="form-group">
-                <label for="tgl_kirim"> Tanggal Kirim : </label>
-                <input type="date" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="masukkan tanggal kirim" title="tentukan hari dan tanggal" required>
-            </div>
-        <div class="form-group">
-                <label for="perihal"> Perihal : </label>
-                <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="masukkan perihal Anda dalam mengirim surat" title="masukkan perihal surat dengan benar" required>
-            </div>
-        <div class="form-group">
-                <label for="departemen"> Departemen : </label>
-                <input type="text" class="form-control form-control-user" id="departemen" name="departemen" placeholder="masukkan asal departemen Anda" title="masukkan departemen Anda dengan benar" required>
-            </div>
-        <div class="form-group">
-                <label for="file"> File : </label>
-                <input type="file" class="form-control form-control-user" id="dokumen" name="dokumen" placeholder="masukkan file surat" title="masukkan soft file surat" required>
-            </div>
-
-            <div class="form-group text-center">`
-                <button class="btn btn-primary px-2 mr-1" type="submit" value="upload">Kirim</button>
-                <button class="btn btn-secondary" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
-            </div>
-            <?php echo form_close();?>
-            </form>
-            <br>
-        <div class="text-center">
-            <div class="row">
-
-            </div>
-            <!-- Batas edit profil -->
-            <!-- Content Row -->
-            <div class="row">
-
-                <!-- Content Column -->
-                <div class="col-lg-6 mb-4">
-
-                </div>
-
-            </div>
-
+            </td>
+            </tr>
+        <?php } ?>
+          </tbody>
+        </table>
         </div>
-        <!-- /.container-fluid -->
+    </div>
+    </div>
+    
+    </div>
+<!-- /.container-fluid -->
+
+</div>
+      <!-- End of Main Content -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
     </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
