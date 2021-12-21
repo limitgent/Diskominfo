@@ -36,7 +36,7 @@ class c_aturjanji extends CI_Controller
     // $this->load->view('templates/footer');
     //}
 
-    public function tambah_janji()
+    public function tambah_janji($nip)
     {
         $jumlahJanji = $this->m_aturjanji->tampil_janji()->num_rows();
         if ($jumlahJanji > 0) {
@@ -59,12 +59,12 @@ class c_aturjanji extends CI_Controller
             $id_janji = "JT001";
         }
 
-        // $where = $this->input->get('nip');
-        // $resultKaryawan = $this->m_aturjanji->tampil_karyawan_where($where)->result();
+        $where = array('karyawan.nip' => $nip);
+        $resultKaryawan = $this->m_aturjanji->tampil_karyawan_where($where, 'karyawan')->result();
 
         $data = array(
             'id_janji' => $id_janji,
-            //   'karyawan' => $resultKaryawan
+            'karyawan' => $resultKaryawan
 
         );
 

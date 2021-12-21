@@ -42,26 +42,27 @@ class m_aturjanji extends CI_Model
     {
         return $this->db->get_where($table, $where);
     }
-    // function tampil_karyawan_where($where, $table)
-    //{
-    //  $fields = array(
-    //    "aturjanji.nip",
-    //  "karyawan.nip",
-    //"karyawan.nama_karyawan",
-    //"aturjanji.hari_tgl",
-    //"aturjanji.atas_nama",
-    //"aturjanji.perihal",
-    //"aturjanji.status",
-    //"aturjanji.no_telpon_user",
-    //"aturjanji.jam",
-    //"aturjanji.instansi",
+    function tampil_karyawan_where($where, $table)
+    {
+        return $this->db->get_where($table, $where);
+        //  $fields = array(
+        //    "aturjanji.nip",
+        //  "karyawan.nip",
+        //"karyawan.nama_karyawan",
+        //"aturjanji.hari_tgl",
+        //"aturjanji.atas_nama",
+        //"aturjanji.perihal",
+        //"aturjanji.status",
+        //"aturjanji.no_telpon_user",
+        //"aturjanji.jam",
+        //"aturjanji.instansi",
 
-    //);
+        //);
 
-    //$this->db->select($fields);
-    //$this->db->from($table);
-    //$this->db->join('aturjanji', 'karyawan.nip = aturjanji.nip');
-    //$this->db->where($where);
-    //return $this->db->get();
-    //}
+        //$this->db->select($fields);
+        //$this->db->from($table);
+        //$this->db->join('aturjanji', 'karyawan.nip = aturjanji.nip');
+        //$this->db->where($where);
+        //return $this->db->get();
+    }
 }
