@@ -5,6 +5,7 @@ class C_kirim_surat extends CI_Controller {
     function __construct(){
         parent::__construct();	
         $this->load->model('m_kirim_surat');
+        $this->load->model('m_data_surat');
         $this->load->helper('url','form','file');
         if($this->session->userdata('status') != "login") {
             redirect(base_url("surat/C_login"));
@@ -18,54 +19,15 @@ class C_kirim_surat extends CI_Controller {
         $this->load->view('surat/v_kirim_surat', $data);
         $this->load->view('surat/templates/footer');
     }
-    public function tambah_surat(){
-        // Membuat fungsi untuk melakukan penambahan id produk secara otomatis
-		// Mendapatkan jumlah produk yang ada di database
-		$jumlahSurat = $this->m_kirim_surat->tampil_kirim_surat()->num_rows();
-		// Jika jumlah produk lebih dari 0
-		if ($jumlahSurat > 0) {
-			// Mengambil id produk sebelumnya
-			$lastId = $this->m_kirim_surat->tampil_surat_akhir()->result();
-			// Melakukan perulangan untuk mengambil data
-			foreach ($lastId as $row) {
-				// Melakukan pemisahan huruf dengan angka pada id produk
-				$rawIdSurat = substr($row->id_surat, 3);
-				// Melakukan konversi nilai pemisahan huruf dengan angka pada id order menjadi integer
-				$idSuratInt = intval($rawIdSurat);
-
-				// Menghitung panjang id yang sudah menjadi integer
-				if (strlen($idSuratInt) == 1) {
-					// jika panjang id hanya 1 angka
-					$id_surat = "SU00" . ($idSuratInt + 1);
-				} else if (strlen($idSuratInt) == 2) {
-					// jika panjang id hanya 2 angka
-					$id_surat = "SU0" . ($idSuratInt + 1);
-				} else if (strlen($idSuratInt) == 3) {
-					// jika panjang id hanya 3 angka
-					$id_surat = "SU" . ($idSuratInt + 1);
-				}
-			}
-		} else {
-			// Jika jumlah paket soal kurang dari sama dengan 0
-			$id_surat = "SU001";
-        }
-        $data = array( 
-            'id_surat' => $id_surat
-        );
-        $this->load->view('surat/templates/header');
-		$this->load->view('surat/templates/sidebar');
-		$this->load->view('surat/v_tambah_surat', $data);
-		$this->load->view('surat/templates/footer');
-
-    }
+    
     public function aksi_tambah_surat(){
-        $nomor_surat = $this->input->post('no_surat');
+        $id_surat = $this->input->post('id_surat');
         $tgl_kirim = $this->input->post('tgl_kirim');
         $perihal = $this->input->post('perihal');
-        $departemen = $this->input->post('departemen');
+        $id_opd = $this->input->post('id_opd');
         $dokumen = $_FILES['dokumen'];
 
-        if ($file=''){}else{
+        if ($dokumen=''){}else{
             $config['upload_path']      = './assets/user/arsip/';
             $config['allowed_types']    = 'pdf|doc|docx|docm|dot|dotx|dotm|ppt|xls|xlsx';
             $config['max_size']         = 0;
@@ -78,10 +40,10 @@ class C_kirim_surat extends CI_Controller {
             }
         }
         $data = array(
-            'no_surat' => $nomor_surat,
+            'id_surat' => $id_surat,
             'tgl_kirim' => $tgl_kirim,
             'perihal' => $perihal,
-            'departemen' => $departemen,
+            'id_opd' => $id_opd,
             'file' => $dokumen
             
       );
@@ -112,15 +74,47 @@ class C_kirim_surat extends CI_Controller {
        
     }
 
-    public function tampil_isi_surat($id){
-        // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
-        $where = array('id_surat' => $id);
-        // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
-        $surat['surat'] = $this->m_kirim_surat->tampil_isi_kirim_surat($where,'surat')->result();
+    public function tampil_isi_surat(){
+        {
+            // Membuat fungsi untuk melakukan penambahan id produk secara otomatis
+            // Mendapatkan jumlah produk yang ada di database
+            $jumlahSurat = $this->m_data_surat->tampil_surat()->num_rows();
+            // Jika jumlah produk lebih dari 0
+            if ($jumlahSurat > 0) {
+                // Mengambil id produk sebelumnya
+                $lastId = $this->m_data_surat->tampil_surat_akhir()->result();
+                // Melakukan perulangan untuk mengambil data
+                foreach ($lastId as $row) {
+                    // Melakukan pemisahan huruf dengan angka pada id produk
+                    $rawIdSurat = substr($row->id_surat, 3);
+                    // Melakukan konversi nilai pemisahan huruf dengan angka pada id order menjadi integer
+                    $idSuratInt = intval($rawIdSurat);
+    
+                    // Menghitung panjang id yang sudah menjadi integer
+                    if (strlen($idSuratInt) == 1) {
+                        // jika panjang id hanya 1 angka
+                        $id_surat = "SU00" . ($idSuratInt + 1);
+                    } else if (strlen($idSuratInt) == 2) {
+                        // jika panjang id hanya 2 angka
+                        $id_surat = "SU0" . ($idSuratInt + 1);
+                    } else if (strlen($idSuratInt) == 3) {
+                        // jika panjang id hanya 3 angka
+                        $id_surat = "SU" . ($idSuratInt + 1);
+                    }
+                }
+            } else {
+                // Jika jumlah paket soal kurang dari sama dengan 0
+                $id_surat = "SU001";
+            }
+            $opd= $this->m_data_surat->opd()->result();
+            $data = array( 
+            'opd' => $opd,
+            'id_surat' => $id_surat
+        );
         // kode ini memuat vie edit dan membawa data hasil query diatas
         $this->load->view('surat/templates/header');
         $this->load->view('surat/templates/sidebar');
-        $this->load->view('surat/v_tampil_isi_surat',$surat);
+        $this->load->view('surat/v_tampil_isi_surat',$data);
         $this->load->view('surat/templates/footer');
        
     }
@@ -151,4 +145,5 @@ class C_kirim_surat extends CI_Controller {
             // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
             redirect('surat/C_kirim_surat/tampil_kirim_surat');
         }
+}
 }
