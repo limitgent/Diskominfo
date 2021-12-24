@@ -19,7 +19,7 @@
                 <p>Divisi : <?= $kar->nama_divisi ?></p>
                 <p><?= $kar->status ?></p>
                 <br>
-                <a href="<?= base_url('user/c_aturjanji/tambah_janji'); ?>"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="ft-plus"> </i>Atur Janji</button></a>
+                <a href="<?= base_url('user/c_aturjanji/tambah_janji/' . $kar->nip); ?>"><button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="ft-plus"> </i>Atur Janji</button></a>
               </div>
             </div>
           <?php } ?>
