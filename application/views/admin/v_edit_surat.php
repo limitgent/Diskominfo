@@ -14,7 +14,7 @@
             foreach ($surat as $su ) { ?>
                 <form action="<?php echo base_url() . 'admin/C_surat/update_data_surat/'; ?>" method="post">
                     <div class="form-group">
-                        <label for="id_surat"> ID SURAT: </label>
+                        <label for="id_surat"> Nomor SURAT: </label>
                         <input type="text" class="form-control form-control-user"  id="id_surat" name="id_surat" value="<?php echo $su->id_surat ?>" readonly>
                         
                     </div>
