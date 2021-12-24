@@ -32,12 +32,12 @@
                 <label for="tgl_kirim"> Tanggal Kirim : </label>
                 <input type="date" class="form-control form-control-user" id="tgl_kirim" name="tgl_kirim" placeholder="masukkan tanggal kirim" title="tentukan hari dan tanggal" required>
             </div>
-        <div class="form-group">
+            <div class="form-group">
                 <label for="perihal"> Perihal : </label>
                 <input type="text" class="form-control form-control-user" id="perihal" name="perihal" placeholder="masukkan perihal Anda dalam mengirim surat" title="masukkan perihal surat dengan benar" required>
             </div>
             
-        <div class="form-group">
+            <div class="form-group">
                 <label for="file"> File : </label>
                 <input type="file" class="form-control form-control-user" id="dokumen" name="dokumen" placeholder="masukkan file surat" title="masukkan soft file surat" required>
             </div>
