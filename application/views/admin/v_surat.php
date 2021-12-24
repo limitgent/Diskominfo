@@ -14,7 +14,7 @@
   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-          <th class="text-center">ID Surat</th>
+          <th class="text-center">Nomor Surat</th>
           <th class="text-center">ID OPD</th>
           <th class="text-center">Tanggal Kirim</th>
           <th class="text-center">Tanggal Terima</th>
