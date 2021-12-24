@@ -12,12 +12,22 @@
         <?php echo form_open_multipart('admin/C_surat/aksi_tambah_surat') ;?>
 
         <div class="form-group">
-                <label for="id_surat"> ID Surat : </label>
+                <label for="id_surat"> Nomor Surat : </label>
                 <input type="text" name="id_surat" id="id_surat" value="<?= $id_surat; ?>" class="form-control" readonly>
             </div>
             <div class="form-group">
-                <label for="id_opd"> ID OPD : </label>
-                <input type="text" name="id_opd" id="id_opd" value="<?= $id_opd; ?>" class="form-control" readonly>
+                <label for="id_opd"> Nama OPD : </label>
+                <fieldset class="form-group">
+                <select name="id_opd" id="id_opd" class\="custom-select">
+                <?php
+                foreach ($opd as $s) :
+            ?>
+                <option value="<?= $s->id_opd;?>"><?= $s->nama_opd;?></option>
+            <?php
+                endforeach;
+            ?>
+            </select>
+            </fieldset>             
             </div>
             <div class="form-group">
                 <label for="tgl_kirim"> Tanggal Kirim : </label>
