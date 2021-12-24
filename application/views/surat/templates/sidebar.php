@@ -32,7 +32,7 @@
        
               <!-- Nav Item - Pages Collapse Menu -->
               <span class="nav-item">
-                <a class="nav-link" href="<?= base_url('surat/C_kirim_surat/tampil_kirim_surat') ?>">
+                <a class="nav-link" href="<?= base_url('surat/C_kirim_surat/tampil_isi_surat') ?>">
                   <i class="fas fa-fw fa-address-card"></i>
                   <span>SURAT</span></a>
                 </li>
