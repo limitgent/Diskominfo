@@ -10,6 +10,9 @@ class m_data_surat extends CI_Model{
     function tambah_surat($surat,$table){
       $this->db->insert($table,$surat);
       }
+      function opd(){
+        return $this->db->get('opd');
+      }
     function tambah_surat_where($where, $table)
       {
         $fields = array(
