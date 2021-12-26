@@ -69,7 +69,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <H3>HALAMAN ADMIN</H3>
+          <H3>HALAMAN USER</H3>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
