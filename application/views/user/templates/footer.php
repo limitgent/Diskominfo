@@ -89,8 +89,12 @@
         <div class="item">
           <h3>KIRIM SURAT</h3>
           <p>You are allowed to use this edu meeting CSS template for your school or university or business. You can feel free to modify or edit this layout.</p>
-          <div class="main-button-red">
-            <div class="scroll-to-section"><a href="#contact">TONTON VIDIO</a></div>
+          <div class="col-lg-6 align-self-center">
+            <div class="video">
+              <div class="main-button-yellow">
+                <a href="##" target=" _blank">TONTON VIDEO</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -167,7 +171,7 @@
   </div>
 </section>
 
-<section class="our-courses" id="courses">
+<!--<section class="our-courses" id="courses">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -178,7 +182,7 @@
       <div class="col-lg-12">
         <div class="owl-courses-item owl-carousel">
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-01.jpg" alt="Course One">
+            <img src="<php echo base_url(); ?>assets/user/images/course-01.jpg" alt="Course One">
             <div class="down-content">
               <h4>Morbi tincidunt elit vitae justo rhoncus</h4>
               <div class="info">
@@ -200,7 +204,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-02.jpg" alt="Course Two">
+            <img src="<php echo base_url(); ?>assets/user/images/course-02.jpg" alt="Course Two">
             <div class="down-content">
               <h4>Curabitur molestie dignissim purus vel</h4>
               <div class="info">
@@ -220,7 +224,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-03.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-03.jpg" alt="">
             <div class="down-content">
               <h4>Nulla at ipsum a mauris egestas tempor</h4>
               <div class="info">
@@ -241,7 +245,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-04.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-04.jpg" alt="">
             <div class="down-content">
               <h4>Aenean molestie quis libero gravida</h4>
               <div class="info">
@@ -285,7 +289,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-02.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-02.jpg" alt="">
             <div class="down-content">
               <h4>TemplateMo is the best website for Free CSS</h4>
               <div class="info">
@@ -307,7 +311,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-03.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-03.jpg" alt="">
             <div class="down-content">
               <h4>Web Design Templates at your finger tips</h4>
               <div class="info">
@@ -329,7 +333,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-04.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-04.jpg" alt="">
             <div class="down-content">
               <h4>Please visit our website again</h4>
               <div class="info">
@@ -351,7 +355,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-01.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-01.jpg" alt="">
             <div class="down-content">
               <h4>Responsive HTML Templates for you</h4>
               <div class="info">
@@ -373,7 +377,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-02.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-02.jpg" alt="">
             <div class="down-content">
               <h4>Download Free CSS Layouts for your business</h4>
               <div class="info">
@@ -395,7 +399,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-03.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-03.jpg" alt="">
             <div class="down-content">
               <h4>Morbi in libero blandit lectus cursus</h4>
               <div class="info">
@@ -417,7 +421,7 @@
             </div>
           </div>
           <div class="item">
-            <img src="<?php echo base_url(); ?>assets/user/images/course-04.jpg" alt="">
+            <img src="<php echo base_url(); ?>assets/user/images/course-04.jpg" alt="">
             <div class="down-content">
               <h4>Curabitur molestie dignissim purus</h4>
               <div class="info">
@@ -488,12 +492,12 @@
       </div>
       <div class="col-lg-6 align-self-center">
         <div class="video">
-          <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src="<?php echo base_url(); ?>assets/user/images/play-icon.png" alt=""></a>
+          <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src="<php echo base_url(); ?>assets/user/images/play-icon.png" alt=""></a>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="contact-us" id="contact">
   <div class="container">
@@ -579,8 +583,7 @@
         <div class="row">
           <div class="col-lg- 50">
             <div class="footer">
-              <p>Copyright © 2022 Edu Meeting Co., Ltd. All RightSSs Reserved.
-                <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+              <p>Copyright © 2022
               </p>
             </div>
           </div>
