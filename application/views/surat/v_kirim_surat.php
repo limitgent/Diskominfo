@@ -1,9 +1,5 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-<!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800"> Kirim Surat <a class="btn btn-primary" href="<?= base_url() . 'surat/C_kirim_surat/tambah_surat/'; ?>">
-            <i class="fas fa-user-plus" disabled></i></a></h1>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -29,7 +25,7 @@
             <td class="text-center"><?= $su->id_surat ?></td>
             <td class="text-center"><?= $su->tgl_kirim ?></td>
             <td class="text-center"><?= $su->perihal ?></td>
-            <td class="text-center"><a href="<?= base_url('assets/user/arsip/' . $su->file) ?>" target="_blank"><?= $su->file ?></a></td>  
+            <td class="text-center"><a href="<?= base_url('assets/admin/upload/' . $su->file) ?>" target="_blank"><?= $su->file ?></a></td>  
           
         </td>
         <td class="text-center">
