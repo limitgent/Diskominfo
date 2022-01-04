@@ -15,6 +15,7 @@
               <div class="col-lg">
                 <div class="p-5">
                   <div class="text-center">
+               
 
                     <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
                   </div>
@@ -34,8 +35,11 @@
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Login
                     </button>
+                 
                   </form>
                   <hr>
+                  <a class="btn btn-primary" href="<?= base_url() . 'user/C_user/'; ?>">
+            <i class="fas fa-arrow-left" disabled></i></a></h1>
                 </div>
               </div>
             </div>
