@@ -1,7 +1,9 @@
 <div class="container-fluid">
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Detail Karyawan</h1>
+            <?php 
+            foreach ($data_karyawan as $datakar ) ?>
+                <h1 class="h3 mb-0 text-gray-800">Detail Karyawan </h1>
             </div>
 
             <!-- Content Row -->
@@ -29,6 +31,15 @@
                         <label for="jabatan"> Jabatan : </label>
                         <input type="text" class="form-control form-control-user"  id="jabatan" name="jabatan" value="<?php echo $datakar->jabatan ?>" readonly>
                     </div>
+                    <div class="form-group">
+                        <?php
+                        if ($datakar->foto == '') { ?>
+                            <label>Belum Ada Gambar</label><br>
+                        <?php } else { ?>
+                            <img src="<?php echo base_url('assets/img/karyawan/' . $datakar->foto) ?>" width="90" height="110"><br>
+                      <?php } ?>
+                    </div>
+                   
                     <hr>
                     <div class="form-group">
                                         <div class="row">

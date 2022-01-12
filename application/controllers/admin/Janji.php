@@ -85,6 +85,12 @@ class Janji extends CI_Controller {
         // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
           $this->m_data_janji->tambah_divisi($data,'divisi');
       // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
+        $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success" role="alert">
+        <strong>Selamat!</strong> Anda Berhasil Menambahkan Data Divisi. Data yang baru ditambahkan dapat dilihat di tabel.
+        </div>
+        ');
+
       redirect('admin/Janji/tampil_divisi');
       }
 
@@ -95,6 +101,11 @@ class Janji extends CI_Controller {
         );
 
         $this->m_data_janji->delete_divisi($where, 'divisi');
+        $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success" role="alert">
+        <strong>Berhasil!</strong> Data anda telah terhapus.
+        </div>
+        ');
         redirect('admin/Janji/tampil_divisi');
     }
 
@@ -135,6 +146,11 @@ class Janji extends CI_Controller {
             // kode untuk melakukan query update dengan menjalankan method update_data() 
             $this->m_data_janji->update_data_divisi($where,$data,'divisi');
             // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+            $this->session->set_flashdata('pesan', '
+            <div class="alert alert-success" role="alert">
+            <strong>Selamat!</strong> Data Divisi telah di Ubah. Data yang baru  dapat dilihat di tabel.
+            </div>
+            ');
             redirect('admin/Janji/tampil_divisi');
         }
 
@@ -169,6 +185,7 @@ class Janji extends CI_Controller {
               if ($foto=''){}else{
                 $config['upload_path']          = './assets/img/karyawan';
                 $config['allowed_types']        ='jpg|png|jpeg|gif|JPG|JPEG';
+                $config['max_size']             = 0;
     
                 $this->load->library('upload',$config);
                 if(!$this->upload->do_upload('foto')) {
@@ -190,6 +207,11 @@ class Janji extends CI_Controller {
             // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
               $this->m_data_janji->tambah_karyawan($data,'karyawan');
           // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
+          $this->session->set_flashdata('pesan', '
+            <div class="alert alert-success" role="alert">
+            <strong>Selamat!</strong> Data Karyawan telah di Tambahkan. Scroll layar kebawah untuk melihat data yang baru ditambahkan.
+            </div>
+            ');
           redirect('admin/Janji/detail_divisi/'.$this->uri->segment(4));
           }
         function tampilDetailKaryawan($nip, $id_divisi)
@@ -228,7 +250,12 @@ class Janji extends CI_Controller {
               unlink($lok);
             }
           }
-		redirect('admin/Janji/detail_divisi/' . $id_divisi); // setelah itu langsung diarah kan ke function index yang menampilkan v_masuk
+          $this->session->set_flashdata('pesan', '
+          <div class="alert alert-success" role="alert">
+          <strong>Berhasil!</strong> Data anda telah terhapus.
+          </div>
+          ');
+          redirect('admin/Janji/detail_divisi/' . $id_divisi); // setelah itu langsung diarah kan ke function index yang menampilkan v_masuk
 	}
 
     function edit_karyawan($nip, $id_divisi)
@@ -264,6 +291,7 @@ class Janji extends CI_Controller {
           if ($foto =''){}else{
             $config['upload_path']          = './assets/img/karyawan';
             $config['allowed_types']        ='jpg|png|jpeg|gif|JPG|JPEG';
+            $config['max_size']             = 0;
 
             
             $this->load->library('upload',$config);
@@ -306,6 +334,11 @@ class Janji extends CI_Controller {
             // kode untuk melakukan query update dengan menjalankan method update_data() 
             $this->m_data_janji->update_data_karyawan($where,$data,'karyawan');
             // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+            $this->session->set_flashdata('pesan', '
+            <div class="alert alert-success" role="alert">
+            <strong>Selamat!</strong> Data Karyawan telah di Ubah. Data yang baru dapat dilihat di tabel.
+            </div>
+            ');
             redirect('admin/Janji/detail_divisi/'.$id_divisi);
         }
 
@@ -362,6 +395,11 @@ class Janji extends CI_Controller {
                 // kode untuk melakukan query update dengan menjalankan method update_data() 
                 $this->m_data_kehadiran->update_status_karyawan($where,$data,'karyawan');
                 // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+                $this->session->set_flashdata('pesan', '
+                <div class="alert alert-success" role="alert">
+                <strong>Selamat!</strong> Status Karyawan telah di Ubah. Perubahan status dapat dilihat di tabel.
+                </div>
+                ');
                 redirect('admin/Janji/set_status/'."?id_divisi=".$id_divisi);
             }
     
