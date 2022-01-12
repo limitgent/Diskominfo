@@ -97,6 +97,14 @@ class janji_temu extends CI_Controller
         );
 
         $this->m_janji_temu->delete_janji($where, 'aturjanji');
+        $this->session->set_flashdata('pesan', '
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Anda <strong>berhasil</strong> menghapus data.
+            <button type="button" class="close py-auto" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          ');
         redirect('admin/janji_temu/tampil_janji');
     }
 

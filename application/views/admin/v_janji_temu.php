@@ -6,6 +6,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Tabel Janji Temu</h6>
         </div>
 
+        <?php echo $this->session->flashdata('pesan'); ?>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -48,7 +49,7 @@
                                 <td class="text-center">
                                     <a class="btn btn-primary" href="<?php echo base_url('admin/janji_temu/edit_janji/' . $atj->id_janji); ?>"><i class="fas fa-pencil-alt"></i></a>
                                     <a class="btn btn-warning" href="<?php echo base_url('admin/janji_temu/detail/' . $atj->id_janji); ?>"><i class="fas fa-info-circle"></i></a>
-                                    <a class="btn btn-danger" href="<?php echo base_url('admin/janji_temu/hapus_janji/' . $atj->id_janji); ?>"><i class="fas fa-trash"></i></a>
+                                    <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');" href="<?= base_url('admin/janji_temu/hapus_janji/' . $atj->id_janji) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
