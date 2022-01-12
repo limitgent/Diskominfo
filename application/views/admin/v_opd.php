@@ -34,7 +34,7 @@
             <td><?=$op->password_opd?></td>
             <td>
               <a class="btn btn-primary" href="<?php echo base_url('admin/C_opd/edit/'. $op->id_opd); ?>"><i class="fas fa-pencil-alt"></i></a>
-              <a class="btn btn-danger" href="<?php echo base_url('admin/C_opd/hapus_opd/'. $op->id_opd); ?>"><i class="fas fa-trash"></i></a>
+              <a class="btn btn-danger" href="<?php echo base_url('admin/C_opd/hapus_opd/'. $op->id_opd); ?>" data-toggle='modal' data-target="#HapusModal"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
         <?php } ?>
@@ -42,6 +42,22 @@
         </table>
         </div>
     </div>
+    </div>
+    <div class="modal fade" id="HapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Yakin Mau Menghapus</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">data data yang berada di dalam akan terhapus semua</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-danger" href="<?php echo base_url('admin/C_opd/hapus_opd/'. $op->id_opd);?>">hapus</a>
+        </div>
+      </div>
     </div>
 
 </div>

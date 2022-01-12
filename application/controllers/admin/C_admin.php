@@ -58,7 +58,7 @@ class C_admin extends CI_Controller {
             // baaris kode ini berisi fungsi untuk menyimpan id user kedalam array $where pada index array bernama 'id'
           $where = array('id_admin' => $id);
           // kode di bawah ini untuk menjalankan query hapus yang berasal dari method hapus_data() pada model m_data
-              $this->m_data->hapus_data2($where,'admin');
+              $this->m_data->hapus_data($where,'admin');
           // kode yang berfungsi mengarakan pengguna ke link base_url()crud/index/
           redirect('admin/C_admin/index');
           }

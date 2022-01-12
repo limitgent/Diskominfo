@@ -18,5 +18,5 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('assets/admin/css/sb-admin-2.min.css" rel="stylesheet');?>">
   <link href="<?php echo base_url('assets/admin/css/bootstrap-datetimepicker.min.css" rel="stylesheet');?>">
-  <?php echo base_url();?>
+  
 </head>
