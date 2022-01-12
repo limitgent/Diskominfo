@@ -31,8 +31,11 @@
             <td><?=$div->nama_divisi?></td>
             <td><?=$div->ket_divisi?></td>
             <td>
+              <a title="Edit" data-toggle="tooltip" data-placement="top" data-original-title="Edit">  
               <a class="btn btn-primary" href="<?php echo base_url('admin/Janji/edit_divisi/'. $div->id_divisi); ?>"><i class="fas fa-pencil-alt"></i></a>
-              <a class="btn btn-danger" href="<?php echo base_url('admin/Janji/hapus_divisi/'. $div->id_divisi); ?>"><i class="fas fa-trash"></i></a>
+              <a title="Hapus" data-toggle="tooltip" data-placement="top" data-original-title="Hapus">
+              <a class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?=$div->id_divisi; ?>"><i class="fas fa-trash"></i></a>
+              <a title="Detail" data-toggle="tooltip" data-placement="top" data-original-title="Detail">
               <a class="btn btn-warning" href="<?php echo base_url('admin/Janji/detail_divisi/'. $div->id_divisi); ?>"><i class="fas fa-info-circle"></i></a>
             </td>
           </tr>
@@ -45,6 +48,34 @@
 
 </div>
 <!-- /.container-fluid -->
+
+<?php
+        foreach($divisi as $div) :    
+    ?>
+        <!--  delete Modal -->
+        <div class="modal fade" id="deleteModal<?= $div->id_divisi?>" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="deletePaketModalTitle">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deletePaketModalTitle">Hapus data</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="text-justify">Apakah anda yakin akan menghapus data Pembayaran dengan ID<em><strong> <?= $div->nama_divisi;?></strong></em></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"> Batal </button>
+                        <a href="<?php echo base_url() ?>admin/Janji/hapus_divisi/<?php echo $div->id_divisi ?>" role="button" class="btn btn-success"> Ya </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+    <?php
+        endforeach;
+    ?>
 
 </div>
       <!-- End of Main Content -->
