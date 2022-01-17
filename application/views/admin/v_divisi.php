@@ -31,12 +31,12 @@
             <td><?=$div->nama_divisi?></td>
             <td><?=$div->ket_divisi?></td>
             <td>
-              <a title="Edit" data-toggle="tooltip" data-placement="top" data-original-title="Edit">  
+              <a title="Edit" data-toggle="tooltip" data-placement="top" data-original-title="Edit"></a>
               <a class="btn btn-primary" href="<?php echo base_url('admin/Janji/edit_divisi/'. $div->id_divisi); ?>"><i class="fas fa-pencil-alt"></i></a>
-              <a title="Hapus" data-toggle="tooltip" data-placement="top" data-original-title="Hapus">
-              <a class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?=$div->id_divisi; ?>"><i class="fas fa-trash"></i></a>
-              <a title="Detail" data-toggle="tooltip" data-placement="top" data-original-title="Detail">
+              <a title="Detail" data-toggle="tooltip" data-placement="top" data-original-title="Detail"></a>
               <a class="btn btn-warning" href="<?php echo base_url('admin/Janji/detail_divisi/'. $div->id_divisi); ?>"><i class="fas fa-info-circle"></i></a>
+              <a title="Hapus" data-toggle="tooltip" data-placement="top" data-original-title="Hapus"></a>
+              <a class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?=$div->id_divisi; ?>"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
         <?php } ?>
@@ -49,6 +49,7 @@
 </div>
 <!-- /.container-fluid -->
 
+<!-- modal delete -->
 <?php
         foreach($divisi as $div) :    
     ?>
@@ -63,11 +64,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h5 class="text-justify">Apakah anda yakin akan menghapus data Pembayaran dengan ID<em><strong> <?= $div->nama_divisi;?></strong></em></h5>
+                        <h5 class="text-justify">Apakah anda yakin akan menghapus data Divisi<em><strong> <?= $div->nama_divisi;?></strong></em></h5>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"> Batal </button>
-                        <a href="<?php echo base_url() ?>admin/Janji/hapus_divisi/<?php echo $div->id_divisi ?>" role="button" class="btn btn-success"> Ya </a>
+                        <a href="<?php echo base_url() ?>admin/Janji/hapus_divisi/<?php echo $div->id_divisi ?>" role="button" class="btn btn-danger"> Ya </a>
                       </div>
                 </div>
             </div>

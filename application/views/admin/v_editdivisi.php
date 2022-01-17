@@ -1,7 +1,9 @@
 <div class="container-fluid">
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Edit Divisi</h1>
+            <?php
+            foreach ($divisi as $div) ?>
+                <h1 class="h3 mb-0 text-gray-800">Edit Divisi <?php echo $div->nama_divisi ?></h1>
             </div>
 
             <!-- Content Row -->
@@ -28,6 +30,8 @@
                     </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Simpan</button>
+                    <br>
+                    <a href="<?php echo base_url();?>admin/Janji/tampil_divisi"><button type="button" name="button" class="btn btn-outline-secondary btn-user btn-block">Batal</button></a>
                 </form>
                 <?php } ?>
                 <br>

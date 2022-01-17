@@ -28,7 +28,11 @@
                     <p><?= $kar->status ?></p>
                     <br>
                     <div class="card-body">
-                      <a href="<?= base_url('user/c_aturjanji/tambah_janji/' . $kar->nip); ?>"><button type="button" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="ft-plus"> </i>Atur Janji</button></a>
+                    <?php
+                      if ($kar->status == 'Dikantor') { ?>
+                         <a href="<?= base_url('user/c_aturjanji/tambah_janji/' . $kar->nip); ?>"><button type="button" class="btn btn-primary btn-min-width mr-1 mb-1"><i class="ft-plus"> </i>Atur Janji</button></a>
+                      <?php } ?>
+                     
                     </div>
                     <br>
                     <p class="social-icon m-t-5 m-b-0">

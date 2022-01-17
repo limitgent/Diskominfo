@@ -18,6 +18,10 @@
     <h6 class="m-0 font-weight-bold text-primary">Setting Karyawan Divisi</h6>
   </div>
   <div class="card-body">
+  <div class="col-sm-12 col-md-2">
+        <a href="<?= base_url('admin/Janji/tampil_status/');?>" class="btn btn-outline-secondary p-2 w-100">Kembali</a>
+      </div>
+      <br>
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>

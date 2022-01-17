@@ -49,6 +49,8 @@
                     </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Simpan</button>
+                    <br>
+                    <a href="<?php echo base_url();?>admin/Janji/detail_divisi/<?php echo $div->id_divisi ?>"><button type="button" name="button" class="btn btn-outline-secondary btn-user btn-block">Batal</button></a>
                     <?php echo form_close();?>
                 <br>
                 <div class="text-center">

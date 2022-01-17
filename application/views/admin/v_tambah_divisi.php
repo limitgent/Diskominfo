@@ -26,6 +26,8 @@
                     </div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Tambah</button>
+                    <br>
+                    <a href="<?php echo base_url();?>admin/Janji/tampil_divisi"><button type="button" name="button" class="btn btn-outline-secondary btn-user btn-block">Batal</button></a>
                 </form>
                 <br>
                 <div class="text-center">

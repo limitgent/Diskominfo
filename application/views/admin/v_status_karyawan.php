@@ -15,7 +15,7 @@
         <div class="card-content collapse show">
             <div class="card-body">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Setting Kehadiran
+            Setting Kehadiran Karyawan
             </button>
             <div>
             <div class="card-header py-3">

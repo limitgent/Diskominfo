@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Tambah Karyawan</h1>
+  <?php
+    foreach ($divisi as $div) ?>
+    <h1 class="h3 mb-0 text-gray-800">Tambah Karyawan Divisi <?php echo $div->nama_divisi ?></h1>
   </div>
 
   <!-- Content Row -->
@@ -36,6 +38,8 @@
     </div>
     <hr>
     <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Tambah</button>
+    <br>
+    <a href="<?php echo base_url();?>admin/Janji/tampil_divisi"><button type="button" name="button" class="btn btn-outline-secondary btn-user btn-block">Kembali</button></a>
     <?php echo form_close(); ?>
     <br>
     <div class="text-center">
@@ -94,8 +98,8 @@
                     <td><?= $kar->jabatan ?></td>
                     <td>
                       <a class="btn btn-primary" href="<?php echo base_url('admin/Janji/edit_karyawan/' . $kar->nip . '/' . $kar->id_divisi); ?>"><i class="fas fa-pencil-alt"></i></a>
-                      <a class="btn btn-primary" href="<?php echo base_url('admin/Janji/tampilDetailKaryawan/' . $kar->nip . '/' . $kar->id_divisi); ?>"><i class="fas fa-info-circle"></i></a>
-                      <a class="btn btn-danger" href="<?php echo base_url('admin/Janji/hapus_karyawan/' . $kar->nip . '/' . $kar->id_divisi); ?>"><i class="fas fa-trash"></i></a>
+                      <a class="btn btn-warning" href="<?php echo base_url('admin/Janji/tampilDetailKaryawan/' . $kar->nip . '/' . $kar->id_divisi); ?>"><i class="fas fa-info-circle"></i></a>
+                      <a class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?=$kar->nip; ?>"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -107,6 +111,35 @@
 
     </div>
     <!-- /.container-fluid -->
+    <!-- modal delete -->
+<?php
+        foreach($karyawan as $kar) :    
+    ?>
+        <!--  delete Modal -->
+        <div class="modal fade" id="deleteModal<?= $kar->nip?>" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="deletePaketModalTitle">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deletePaketModalTitle">Hapus data</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="text-justify">Apakah anda yakin akan menghapus data Karyawan<em><strong> <?= $kar->nama_karyawan;?></strong></em></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"> Batal </button>
+                        <a href="<?php echo base_url('admin/Janji/hapus_karyawan/' . $kar->nip . '/' . $kar->id_divisi) ?>" role="button" class="btn btn-danger"> Ya </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+    <?php
+        endforeach;
+    ?>
+
 
   </div>
   <!-- End of Main Content -->
