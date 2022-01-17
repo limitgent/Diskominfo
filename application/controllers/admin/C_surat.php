@@ -109,6 +109,14 @@ class C_surat extends CI_Controller {
                 // method yang berfungsi melakukan insert ke dalam database yang mengirim 2 parameter yaitu sebuah array data dan nama tabel yang dimaksud
                   $this->m_data_surat->tambah_surat($data,'surat');
               // kode yang berfungsi mengarahkan pengguna ke link base_url()crud/index/ 
+              $this->session->set_flashdata('pesan', '
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Anda <strong>berhasil</strong> mengirim data.
+                <button type="button" class="close py-auto" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              ');
               redirect('admin/C_surat/tampil_surat');
               }
 
