@@ -9,6 +9,7 @@
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Data Surat</h6>
   </div>
+  <?php echo $this->session->flashdata('pesan'); ?>
   <div class="card-body">
   <div class="table-responsive">
   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -38,8 +39,9 @@
         </td>
         <td class="text-center">
               <a class="btn btn-primary" href="<?php echo base_url('admin/C_surat/edit_surat/'. $su->id_surat); ?>"><i class="fas fa-pencil-alt"></i></a>
-              <a class="btn btn-danger" href="<?php echo base_url('admin/C_surat/hapus_surat/'. $su->id_surat); ?>"><i class="fas fa-trash"></i></a>
-              <!--<a class="btn btn-warning " href="<?php echo base_url('admin/C_surat/tampil_isi_surat/'. $su->id_surat); ?>"><i class="fas fa-info-circle"></i></a> -->
+              
+              <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');" href="<?= base_url('admin/C_surat/hapus_surat/' . $su->id_surat) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+              <!--<a class="btn btn-warning " href="<php echo base_url('admin/C_surat/tampil_isi_surat/'. $su->id_surat); ?>"><i class="fas fa-info-circle"></i></a> -->
 
             </td>
           </tr>
