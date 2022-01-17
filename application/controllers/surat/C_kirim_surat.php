@@ -48,6 +48,14 @@ class C_kirim_surat extends CI_Controller {
             
       );
       $this->m_kirim_surat->tambah_surat($data,'surat');
+      $this->session->set_flashdata('pesan', '
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Anda <strong>berhasil</strong> mengirim data.
+                <button type="button" class="close py-auto" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              ');
       redirect('surat/C_kirim_surat/tampil_kirim_surat');
     }
     function hapus_surat($id){
@@ -58,6 +66,14 @@ class C_kirim_surat extends CI_Controller {
       // kode di bawah ini untuk menjalankan query hapus yang berasal dari method hapus_data() pada model m_data
           $this->m_kirim_surat->hapus_surat($where,'surat');
       // kode yang berfungsi mengarakan pengguna ke link base_url()crud/index/
+      $this->session->set_flashdata('pesan', '
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Anda <strong>berhasil</strong> menghapus data.
+                <button type="button" class="close py-auto" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              ');
       redirect('surat/C_kirim_surat/tampil_kirim_surat');
       }
 
