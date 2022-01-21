@@ -114,6 +114,7 @@ class janji_temu extends CI_Controller
         $where = array('id_janji' => $id);
         // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
         $data['aturjanji'] = $this->m_janji_temu->edit($where, 'aturjanji')->result();
+
         // kode ini memuat vie edit dan membawa data hasil query diatas
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/sidebar');
@@ -168,6 +169,14 @@ class janji_temu extends CI_Controller
 
         // kode untuk melakukan query update dengan menjalankan method update_data() 
         $this->m_janji_temu->update_janji_temu($where, $data, 'aturjanji');
+        $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          Anda <strong>berhasil</strong> merubah status.
+          <button type="button" class="close py-auto" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        ');
         // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
         redirect('admin/janji_temu/tampil_janji');
     }
