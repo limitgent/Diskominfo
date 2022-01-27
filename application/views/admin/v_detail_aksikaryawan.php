@@ -20,7 +20,7 @@
                         
                     </div>
                     <div class="form-group">
-                        <label for="nip"> NIP : </label>
+                        <label for="nip"> NIP atau NIK : </label>
                         <input type="text" class="form-control form-control-user"  id="nip" name="nip" value="<?php echo $datakar->nip ?>" readonly>
                     </div>
                     <div class="form-group">

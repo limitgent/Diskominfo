@@ -21,7 +21,7 @@
       <input type="text" name="nama_divisi" id="_divisi" value="<?php echo $div->nama_divisi ?>" class="form-control" readonly>
     </div>
     <div class="form-group">
-      <label for="nip"> NIP : </label>
+      <label for="nip"> NIP atau NIK : </label>
       <input type="text" class="form-control form-control-user" id="nip" name="nip" placeholder="Masukan NIP" title="Isikan data dengan benar" required>
     </div>
     <div class="form-group">
@@ -75,7 +75,7 @@
               <thead>
                 <tr>
                   <th>Foto</th>
-                  <th>NIP</th>
+                  <th>NIP atau NIK</th>
                   <th>Nama Karyawan</th>
                   <th>Jabatan</th>
                   <th>Aksi</th>

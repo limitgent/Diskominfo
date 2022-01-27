@@ -26,9 +26,9 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                         <tr>
-                          <th>Divisi</th>
+                          <th>Nama Divisi</th>
                           <th>Foto</th>
-                          <th>NIP</th>
+                          <th>NIP atau NIK</th>
                           <th>Nama</th>
                           <th>Jabatan</th>
                           <th>Status</th>
@@ -38,7 +38,7 @@
                       <?php 
                         foreach ($karyawan as $kar ) { ?>
                           <tr>
-                          <td><?=$kar->id_divisi?></td>
+                          <td><?=$kar->nama_divisi?></td>
                             <td><?php
                             if($kar->foto==''){?>
                               <label>Belum Ada Gambar</label><br>
